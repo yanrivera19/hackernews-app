@@ -1,16 +1,12 @@
 import React, {useEffect} from 'react';
 import { Form, Field } from 'react-final-form';
 import {fetchMainNews} from '../actions';
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 
 const SearchForm = (props) => {
+	const searchTerm = useSelector(state => state.mainNews)
 
 	console.log(props)
-	// const newsFeed = useSelector((news) => news.newsFeed);
-	// useEffect(() => {
-	// 	props.fetchMainNews('Artificial Intelligence')
-	// })
-
 
 	const renderInput = ({input}) => {
 		return (

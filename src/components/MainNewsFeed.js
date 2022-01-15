@@ -11,7 +11,7 @@ const MainNewsFeed = (props) => {
 		props.fetchMainNews('Technology')
 	}, [])
 
-	console.log(mainNews)
+	console.log(mainNews.length)
 
 	const renderList = mainNews.map(mainNews => {
 		const {title, urlToImage, description, author, publishedAt} = mainNews;
@@ -36,9 +36,13 @@ const MainNewsFeed = (props) => {
 	})
 
 	return (
+		mainNews.length === 0 ? (
+			<div>Sorry, no results were found.</div>
+		) : (
 		<div className="col-md-8">
 			<div>{renderList}</div>
 		</div>
+		)
 	)
 }
 

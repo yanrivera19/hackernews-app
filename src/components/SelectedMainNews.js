@@ -15,13 +15,12 @@ const SelectedMainNews = (props) => {
 	useEffect(() => {
 		if (newsTitle && newsTitle !== '') {
 			props.fetchSelectedMainNews(newsTitle);
-			console.log('success request')
 		}
 	}, [newsTitle]);
 
 	return (
 		<div className="col-md-8">
-			{Object.keys(selectedNews).length === 0 ? (
+			{selectedNews.length === 0 ? (
 				<div>Loading...</div>
 			) : (
 				<div>

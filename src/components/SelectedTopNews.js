@@ -3,13 +3,14 @@ import {fetchSelectedTopNews} from '../actions';
 import {connect, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 
+
 const SelectedTopNews = (props) => {
 	const selectedTopNews = useSelector(state => state.selectedTopNews);
+	const {title, urlToImage, content, author, publishedAt} = selectedTopNews;
 
 	const {topNewsTitle} = useParams();
 
 	console.log(topNewsTitle)
-	console.log(selectedTopNews)
 
 	useEffect(() => {
 		if (topNewsTitle && topNewsTitle !== '') {
@@ -20,18 +21,18 @@ const SelectedTopNews = (props) => {
 
 	return (
 		<div className="col-md-8">
-			{Object.keys(selectedTopNews).length === 0 ? (
+			{selectedTopNews.length === 0 ? (
 				<div>Loading...</div>
 			) : (
 				<div>
-					<h1>{selectedTopNews.title}</h1>
+					<h1>{title}</h1>
 					<div className="d-inline-flex">
-						<p>{selectedTopNews.publishedAt}</p>
-						<p>{selectedTopNews.author}</p>
+						<p>{publishedAt}</p>
+						<p>{author}</p>
 					</div>
-					<img style={{width: '40rem'}} src={selectedTopNews.urlToImage} />
+					<img style={{width: '40rem'}} src={urlToImage} />
 					<div>
-						<p>{selectedTopNews.content}</p>
+						<p>{content}</p>
 					</div>
 				</div>
 			)}

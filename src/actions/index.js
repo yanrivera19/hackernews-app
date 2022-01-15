@@ -14,8 +14,8 @@ export const fetchMainNews = term => async dispatch => {
 			page: 10,
 			language: 'en',
 		}
-
 	});
+	
 	dispatch({type: FETCH_MAIN_NEWS, payload: response.data.articles});
 }
 
