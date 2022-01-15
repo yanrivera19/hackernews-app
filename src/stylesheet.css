@@ -1,0 +1,17 @@
+* {
+  margin: 0
+}
+
+.search-bar {
+  width: 100%
+}
+
+.active {
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+
+.second-nav {
+  opacity: 1;
+  transition: opacity 0.15s linear;
+}
