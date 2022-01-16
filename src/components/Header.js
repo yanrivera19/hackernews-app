@@ -12,11 +12,11 @@ const Header = () => {
 	console.log(isClicked)
 
 	return (
-		<>
+		<div style={{paddingBottom: '30px'}}>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid" id="content">
 					<Link to="/" style={{ textDecoration: 'none' }}>		
-						<h2 className="navbar-brand" href="#">The Hacker News</h2>
+						<h1 className="navbar-brand fs-1">The Hacker News</h1>
 					</Link>							    
 			    	<div>
 				    	<button className="btn-sm btn-outline-dark" type="button" onClick={handleClick} data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@ const Header = () => {
 				    <SearchForm />
 				</div>
 			</nav>		
-		</>
+		</div>
 	);
 };
 

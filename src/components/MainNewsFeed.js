@@ -25,9 +25,9 @@ const MainNewsFeed = (props) => {
 		const newsDate = `${month} ${day}, ${year}`;
 
 		return (
-			<div key={title} className="news-container">
+			<div key={title} className="news-container pb-4">
 				<Link to={`/newsDetails/${title}`} style={{ textDecoration: 'none' }}> 
-					<Card style={{ width: '35rem' }}>
+					<Card className="news-card">
 					  <Card.Img variant="top" src={urlToImage} />
 					  <Card.Body>
 					    <Card.Title className="news-title">{title}</Card.Title>
