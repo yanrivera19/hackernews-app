@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {fetchSelectedTopNews} from '../actions';
-import {connect, useSelector} from 'react-redux';
+import {fetchSelectedTopNews, removeNews} from '../actions';
+import {connect, useSelector, useDispatch} from 'react-redux';
 import {useParams} from 'react-router-dom';
 
 
@@ -8,6 +8,7 @@ const SelectedTopNews = (props) => {
 	const selectedTopNews = useSelector(state => state.selectedTopNews);
 	const {title, urlToImage, content, author, publishedAt} = selectedTopNews;
 
+	const dispatch = useDispatch();
 	const {topNewsTitle} = useParams();
 
 	console.log(topNewsTitle)
@@ -17,6 +18,10 @@ const SelectedTopNews = (props) => {
 			props.fetchSelectedTopNews(topNewsTitle);
 			console.log('success')
 		}
+
+		return () => {
+			dispatch(removeNews())
+		};
 	}, [topNewsTitle]);
 
 	return (
@@ -37,7 +42,7 @@ const SelectedTopNews = (props) => {
 				</div>
 			)}
 		</div>
-	)
-}
+	);
+};
 
 export default connect(null, {fetchSelectedTopNews})(SelectedTopNews);

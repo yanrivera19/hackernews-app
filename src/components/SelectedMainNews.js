@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
-import {fetchSelectedMainNews} from '../actions';
-import {connect, useSelector} from 'react-redux';
+import {fetchSelectedMainNews, removeNews} from '../actions';
+import {connect, useSelector, useDispatch} from 'react-redux';
 import {useParams} from 'react-router-dom';
 
 const SelectedMainNews = (props) => {
 	const selectedNews = useSelector(state => state.selectedNews);
 	const {title, urlToImage, content, author, publishedAt} = selectedNews;
 
+	const dispatch = useDispatch();
 	const {newsTitle} = useParams();
 
 	console.log(newsTitle)
@@ -16,6 +17,10 @@ const SelectedMainNews = (props) => {
 		if (newsTitle && newsTitle !== '') {
 			props.fetchSelectedMainNews(newsTitle);
 		}
+
+		return () => {
+			dispatch(removeNews())
+		};
 	}, [newsTitle]);
 
 	return (
@@ -36,7 +41,7 @@ const SelectedMainNews = (props) => {
 				</div>
 			)}
 		</div>
-	)
-}
+	);
+};
 
 export default connect(null, {fetchSelectedMainNews})(SelectedMainNews);

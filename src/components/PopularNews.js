@@ -10,9 +10,9 @@ const PopularNews = (props) => {
 	
 	useEffect(() => {
 		props.fetchTopNews()
-	},[])
+	},[]);
 
-	console.log(topHeadlines)
+	console.log(topHeadlines);
 
 
 	const renderList = topHeadlines.map(topHeadline => {
@@ -26,15 +26,15 @@ const PopularNews = (props) => {
   					</div>  					
     			</Link>
 			</div>		
-		)
-	})	
+		);
+	});	
 
 	return (
 		<div className="col-md-4">
 			<h2>Popular This Week</h2>
 			<div>{renderList}</div>
 		</div>
-	)
-}
+	);
+};
 
 export default connect(null, {fetchTopNews})(PopularNews);

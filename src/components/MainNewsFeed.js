@@ -39,12 +39,12 @@ const MainNewsFeed = (props) => {
 		mainNews.length === 0 ? (
 			<div>Sorry, no results were found.</div>
 		) : (
-		<div className="col-md-8">
-			<div>{renderList}</div>
-		</div>
+			<div className="col-md-8">
+				<div>{renderList}</div>
+			</div>
 		)
-	)
-}
+	);
+};
 
 export default connect(null, {fetchMainNews})(MainNewsFeed);
 

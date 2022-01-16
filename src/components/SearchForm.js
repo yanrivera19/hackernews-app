@@ -1,15 +1,14 @@
 import React, {useEffect} from 'react';
 import { Form, Field } from 'react-final-form';
-import {fetchMainNews} from '../actions';
-import { connect, useSelector } from 'react-redux'
+import {fetchMainNews, removeNews} from '../actions';
+import { connect, useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom';
 
 const SearchForm = (props) => {
-	const searchTerm = useSelector(state => state.mainNews)
+	const searchTerm = useSelector(state => state.mainNews);
 	const {title} = searchTerm;
 
-	console.log(props)
-
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const renderInput = ({input}) => {
@@ -18,13 +17,19 @@ const SearchForm = (props) => {
 				<input className="form-control" placeholder="Search Here..." autoComplete="off" {...input}/>
 			</div>
 		);		
-	}
+	};
 
 	const onSubmit = formValues => {
-		props.fetchMainNews(formValues);
-		const formValuesString = JSON.stringify(formValues)
-		navigate(`/search/${formValuesString}`)
-	}
+		if (formValues && formValues !== '') {
+			props.fetchMainNews(formValues);
+			const formValuesString = JSON.stringify(formValues)
+			navigate(`/search/${formValuesString}`)
+		}
+		
+		return () => {
+			dispatch(removeNews())
+		};
+	};
 
 	return (
 		<Form 
@@ -36,6 +41,6 @@ const SearchForm = (props) => {
 			)}
 		/>
 	);
-}
+};
 
 export default connect(null, {fetchMainNews})(SearchForm);
