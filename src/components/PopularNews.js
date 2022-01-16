@@ -18,12 +18,14 @@ const PopularNews = (props) => {
 	const renderList = topHeadlines.map(topHeadline => {
 		const {title, urlToImage} = topHeadline;
 		return (
-			<div key={title}>
+			<div key={title} className="news-container ">
 				<Link to={`/topNewsDetails/${title}`} style={{ textDecoration: 'none' }}> 
-  					<div className="d-flex">
-  						<img style={{width: '10rem'}} src={urlToImage} />
-  						<p>{title}</p>
-  					</div>  					
+  					<div className="col-sm-6">
+  						<img style={{width: '8rem'}} src={urlToImage} />
+  					</div>
+  					<div className="col-sm-6">
+  						<p className="news-title pop-title">{title}</p>
+  					</div>					
     			</Link>
 			</div>		
 		);

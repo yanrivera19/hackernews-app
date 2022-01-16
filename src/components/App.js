@@ -12,7 +12,7 @@ const App = () => {
 		<>
 			<Router>
 				<Header />
-				<div className="container-fluid">
+				<div className="container-fluid page-content">
 					<div className="row">
 						<Routes>
 							<Route path={'/'} element={<MainNewsFeed/>}/>

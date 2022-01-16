@@ -21,6 +21,7 @@ const SelectedTopNews = (props) => {
 	console.log(topNewsTitle)
 
 	useEffect(() => {
+		window.scrollTo(0, 0);
 		if (topNewsTitle && topNewsTitle !== '') {
 			props.fetchSelectedTopNews(topNewsTitle);
 			console.log('success')
@@ -33,13 +34,13 @@ const SelectedTopNews = (props) => {
 				<div>Loading...</div>
 			) : (
 				<div>
-					<h1>{title}</h1>
-					<div className="d-inline-flex">
-						<p>{publishedAt}</p>
-						<p>{author}</p>
+					<h1 className="news-title">{title}</h1>
+					<div className="d-inline-flex date-author">
+						<p style={{paddingRight: 20}}><i class="fa-regular fa-calendar-days" style={{paddingRight: 8}}></i>{newsDate}</p>					    	
+					    <p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>{author}</p>
 					</div>
-					<img style={{width: '40rem'}} src={urlToImage} />
-					<div>
+					<img style={{width: '35rem'}} src={urlToImage} />
+					<div className="news-content">
 						<p>{content}</p>
 					</div>
 				</div>

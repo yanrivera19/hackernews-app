@@ -25,19 +25,17 @@ const MainNewsFeed = (props) => {
 		const newsDate = `${month} ${day}, ${year}`;
 
 		return (
-			<div key={title}>
+			<div key={title} className="news-container">
 				<Link to={`/newsDetails/${title}`} style={{ textDecoration: 'none' }}> 
-					<Card style={{ width: '40rem' }}>
+					<Card style={{ width: '35rem' }}>
 					  <Card.Img variant="top" src={urlToImage} />
 					  <Card.Body>
-					    <Card.Title>{title}</Card.Title>
-					    <div className="d-inline-flex">
-					    	<i className="fa-light fa-calendar-days"></i>
-					    	<p style={{paddingRight: 20}}>{newsDate}</p>
-					    	<i className="fa-solid fa-user"></i>
-					    	<p>{author}</p>
+					    <Card.Title className="news-title">{title}</Card.Title>
+					    <div className="d-inline-flex date-author">					    	
+					    	<p style={{paddingRight: 20}}><i class="fa-regular fa-calendar-days" style={{paddingRight: 8}}></i>{newsDate}</p>					    	
+					    	<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>{author}</p>
 					    </div>
-					    <Card.Text>{description}</Card.Text>
+					    <Card.Text className="news-content">{description}</Card.Text>
 					    <Button variant="primary">Read More</Button>
 					  </Card.Body>
 					</Card>

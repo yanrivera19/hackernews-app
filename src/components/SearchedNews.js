@@ -24,12 +24,12 @@ const SearchedNews = (props) => {
 					<Card style={{ width: '40rem' }}>
 						<Card.Img variant="top" src={urlToImage} />
 					  	<Card.Body>
-					    	<Card.Title>{title}</Card.Title>
-					    	<div className="d-inline-flex">
+					    	<Card.Title className="news-title">{title}</Card.Title>
+					    	<div className="d-inline-flex date-author">
 						    	<p style={{paddingRight: 20}}>{author}</p>
 						    	<p>{newsDate}</p>
 						    </div>
-						    <Card.Text>{description}</Card.Text>
+						    <Card.Text className="news-content">{description}</Card.Text>
 						    <Button variant="primary">Read More</Button>
 					  	</Card.Body>
 					</Card>

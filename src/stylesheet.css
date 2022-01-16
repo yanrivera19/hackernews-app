@@ -1,6 +1,4 @@
-* {
-  margin: 0
-}
+
 
 .search-bar {
   width: 100%
@@ -14,4 +12,30 @@
 .second-nav {
   opacity: 1;
   transition: opacity 0.15s linear;
+}
+
+.news-title {
+  color: #333333
+}
+
+.news-container:hover .news-title {
+  text-decoration: underline;
+}
+
+.date-author {
+  color: #555555;
+  font-size: 13px;
+}
+
+.news-content {
+  color: #444444
+}
+
+.pop-title {
+  font-size: 13px
+}
+
+.page-content {
+  padding-left: 50px;
+  padding-right: 50px
 }
