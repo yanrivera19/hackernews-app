@@ -15,7 +15,7 @@ const Header = () => {
 		<>
 			<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid" id="content">
-					<Link to="/">		
+					<Link to="/" style={{ textDecoration: 'none' }}>		
 						<h2 className="navbar-brand" href="#">The Hacker News</h2>
 					</Link>							    
 			    	<div>

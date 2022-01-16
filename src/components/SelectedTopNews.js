@@ -6,10 +6,17 @@ import {useParams} from 'react-router-dom';
 
 const SelectedTopNews = (props) => {
 	const selectedTopNews = useSelector(state => state.selectedTopNews);
-	const {title, urlToImage, content, author, publishedAt} = selectedTopNews;
-
 	const dispatch = useDispatch();
 	const {topNewsTitle} = useParams();
+
+	const {title, urlToImage, content, author, publishedAt} = selectedTopNews;
+	const time = new Date(publishedAt).getTime();
+	const day = new Date(time).getDate();
+	const monthNames = ["January", "February", "March", "April", "May", "June",
+ 	"July", "August", "September", "October", "November", "December"];
+	const month = monthNames[new Date(time).getMonth()];
+	const year = new Date(time).getFullYear();
+	const newsDate = `${month} ${day}, ${year}`;
 
 	console.log(topNewsTitle)
 
@@ -18,11 +25,7 @@ const SelectedTopNews = (props) => {
 			props.fetchSelectedTopNews(topNewsTitle);
 			console.log('success')
 		}
-
-		return () => {
-			dispatch(removeNews())
-		};
-	}, [topNewsTitle]);
+	}, []);
 
 	return (
 		<div className="col-md-8">

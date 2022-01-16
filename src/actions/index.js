@@ -17,17 +17,21 @@ export const fetchMainNews = term => async dispatch => {
 		}
 	});
 
+	console.log('success')
+
 	dispatch({type: FETCH_MAIN_NEWS, payload: response.data.articles});
 };
 
-export const fetchTopNews = () => async dispatch => {
+export const fetchTopNews = term => async dispatch => {
 	const response = await news.get('/top-headlines', {
 		params: {
-			category: 'Technology',
+			category: term,
 			pageSize: 9,
 			language: 'en'
 		}
 	});
+
+	console.log('success')
 
 	dispatch({type: FETCH_TOP_NEWS, payload: response.data.articles});
 };
@@ -38,6 +42,8 @@ export const fetchSelectedMainNews = (title) => async dispatch => {
 			q: title
 		}
 	});
+
+	console.log('success')
 
 	dispatch({type: FETCH_SELECTED_MAIN_NEWS, payload: response.data.articles[0]})
 };
@@ -53,8 +59,10 @@ export const fetchSelectedTopNews = (title) => async dispatch => {
 	dispatch({type: FETCH_SELECTED_TOP_NEWS, payload: response.data.articles[0]})
 };
 
-export const removeNews = () => {
-	return {
-		type: REMOVE_NEWS	
-	};
-};
+// export const removeNews = () => {
+// 	return {
+// 		type: REMOVE_NEWS	
+// 	};
+// 
+// 	console.log('success')
+// };

@@ -15,9 +15,8 @@ const App = () => {
 				<div className="container-fluid">
 					<div className="row">
 						<Routes>
-							<Route key="home-page" path={'/'} element={<MainNewsFeed/>}/>
-							<Route key="search-page" path={'/search/:newsTitle'} element={<SearchedNews/>}/>
-							<Route path={'/search/newsDetails/:newsTitle'} element={<SelectedMainNews/>}/>
+							<Route path={'/'} element={<MainNewsFeed/>}/>
+							<Route path={'/search/:newsTitle'} element={<SearchedNews/>}/>
 							<Route path={'/newsDetails/:newsTitle'} element={<SelectedMainNews/>}/>
 							<Route path={'/topNewsDetails/:topNewsTitle'} element={<SelectedTopNews/>}/>
 						</Routes>

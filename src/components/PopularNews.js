@@ -9,8 +9,8 @@ const PopularNews = (props) => {
 
 	
 	useEffect(() => {
-		props.fetchTopNews()
-	},[]);
+		props.fetchTopNews('Technology')
+	}, []);
 
 	console.log(topHeadlines);
 
@@ -19,7 +19,7 @@ const PopularNews = (props) => {
 		const {title, urlToImage} = topHeadline;
 		return (
 			<div key={title}>
-				<Link to={`/topNewsDetails/${title}`}> 
+				<Link to={`/topNewsDetails/${title}`} style={{ textDecoration: 'none' }}> 
   					<div className="d-flex">
   						<img style={{width: '10rem'}} src={urlToImage} />
   						<p>{title}</p>

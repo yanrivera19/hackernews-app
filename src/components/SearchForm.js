@@ -11,10 +11,15 @@ const SearchForm = (props) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
+	// const clearInput = (formValues) => {
+	// 	formValues === '';
+	// }
+
+	// onFocus={clearInput}
 	const renderInput = ({input}) => {
 		return (
 			<div>
-				<input className="form-control" placeholder="Search Here..." autoComplete="off" {...input}/>
+				<input  className="form-control" placeholder="Search Here..." autoComplete="off" {...input}/>
 			</div>
 		);		
 	};
@@ -22,13 +27,13 @@ const SearchForm = (props) => {
 	const onSubmit = formValues => {
 		if (formValues && formValues !== '') {
 			props.fetchMainNews(formValues);
-			const formValuesString = JSON.stringify(formValues)
-			navigate(`/search/${formValuesString}`)
+			// const formValuesString = JSON.stringify(formValues)
+			// navigate(`/search/${formValuesString}`)
 		}
-		
-		return () => {
-			dispatch(removeNews())
-		};
+
+		// return () => {
+		// 	dispatch(removeNews())
+		// };
 	};
 
 	return (
