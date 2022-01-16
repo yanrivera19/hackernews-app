@@ -2,11 +2,15 @@ import React, {useEffect} from 'react';
 import { Form, Field } from 'react-final-form';
 import {fetchMainNews} from '../actions';
 import { connect, useSelector } from 'react-redux'
+import {useNavigate} from 'react-router-dom';
 
 const SearchForm = (props) => {
 	const searchTerm = useSelector(state => state.mainNews)
+	const {title} = searchTerm;
 
 	console.log(props)
+
+	const navigate = useNavigate();
 
 	const renderInput = ({input}) => {
 		return (
@@ -17,8 +21,9 @@ const SearchForm = (props) => {
 	}
 
 	const onSubmit = formValues => {
-		console.log(fetchMainNews(formValues))
 		props.fetchMainNews(formValues);
+		const formValuesString = JSON.stringify(formValues)
+		navigate(`/search/${formValuesString}`)
 	}
 
 	return (
