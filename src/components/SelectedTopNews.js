@@ -39,7 +39,7 @@ const SelectedTopNews = (props) => {
 						<p style={{paddingRight: 20}}><i class="fa-regular fa-calendar-days" style={{paddingRight: 8}}></i>{newsDate}</p>					    	
 					    <p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>{author}</p>
 					</div>
-					<img style={{width: '35rem'}} src={urlToImage} />
+					<img className="selected-news-img" style={{width: '18rem'}} src={urlToImage} />
 					<div className="news-content">
 						<p>{content}</p>
 					</div>

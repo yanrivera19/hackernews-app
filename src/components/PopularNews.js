@@ -22,7 +22,7 @@ const PopularNews = (props) => {
 				<Link to={`/topNewsDetails/${title}`} style={{ textDecoration: 'none' }}> 
   					<div style={{paddingBottom: '20px'}}>
   						<img  src={urlToImage} className="pop-img" />
-  						<p className="news-title pop-title">{title}</p>
+  						<p className="news-title pop-title fw-bold">{title}</p>
   					</div>					
     			</Link>
 			</div>		

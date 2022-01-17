@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {connect, useSelector} from 'react-redux';
-import {fetchMainNews} from '../actions';
 import {Card, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
@@ -19,9 +18,9 @@ const SearchedNews = (props) => {
 		const newsDate = `${month} ${day}, ${year}`;
 
 		return (
-			<div key={title}>
-				<Link to={`/search/${title}`} style={{ textDecoration: 'none' }}> 
-					<Card style={{ width: '40rem' }}>
+			<div key={title} className="news-container pb-4">
+				<Link to={`/search/newsDetails/${title}`} style={{ textDecoration: 'none' }}> 
+					<Card className="news-card">
 						<Card.Img variant="top" src={urlToImage} />
 					  	<Card.Body>
 					    	<Card.Title className="news-title">{title}</Card.Title>
@@ -49,5 +48,5 @@ const SearchedNews = (props) => {
 	);
 };
 
-export default connect(null, {fetchMainNews})(SearchedNews);
+export default SearchedNews;
 

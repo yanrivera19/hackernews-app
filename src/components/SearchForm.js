@@ -1,39 +1,35 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import { Form, Field } from 'react-final-form';
 import {fetchMainNews, removeNews} from '../actions';
 import { connect, useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom';
 
 const SearchForm = (props) => {
+	const ref = useRef();
 	const searchTerm = useSelector(state => state.mainNews);
 	const {title} = searchTerm;
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	// const clearInput = (formValues) => {
-	// 	formValues === '';
-	// }
+	const clearInput = () => {
+		ref.current.value = '';
+	}
 
-	// onFocus={clearInput}
 	const renderInput = ({input}) => {
 		return (
 			<div>
-				<input  className="form-control" placeholder="Search Here..." autoComplete="off" {...input}/>
+				<input ref={ref} className="form-control" placeholder="Search Here..." autoComplete="off" {...input}/>
 			</div>
 		);		
 	};
 
 	const onSubmit = formValues => {
+		const formValuesString = JSON.stringify(formValues)
 		if (formValues && formValues !== '') {
-			props.fetchMainNews(formValues);
-			// const formValuesString = JSON.stringify(formValues)
-			// navigate(`/search/${formValuesString}`)
+			props.fetchMainNews(formValues);			
+			navigate(`/search/${formValuesString}`);
 		}
-
-		// return () => {
-		// 	dispatch(removeNews())
-		// };
 	};
 
 	return (

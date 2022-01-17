@@ -29,10 +29,6 @@
   color: #444444
 }
 
-.pop-news {
-  padding-top: 400px
-}
-
 .pop-title {
   font-size: 13px;
   overflow: hidden;
@@ -65,4 +61,11 @@
     width: 30rem
   }
 
+  .pop-news {
+    padding-top: 400px
+  }
+
+  .selected-news-img {
+    width: 35rem !important;
+  }
 }  
