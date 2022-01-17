@@ -8,8 +8,7 @@ import {
 const INITIAL_STATE = {
 	mainNews: [],
 	topHeadlines: [],
-	selectedNews: [],
-	selectedTopNews: []
+	selectedNews: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -21,7 +20,7 @@ export default (state = INITIAL_STATE, action) => {
 		case FETCH_SELECTED_MAIN_NEWS:
 			return {...state, selectedNews: action.payload};
 		case FETCH_SELECTED_TOP_NEWS:
-			return {...state, selectedTopNews: action.payload};				
+			return {...state, selectedNews: action.payload};				
 		default:
 			return state;
 	}

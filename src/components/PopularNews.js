@@ -6,14 +6,12 @@ import {Link} from 'react-router-dom';
 
 const PopularNews = (props) => {
 	const topHeadlines = useSelector(state => state.topHeadlines);
-
 	
 	useEffect(() => {
 		props.fetchTopNews('Technology')
 	}, []);
 
 	console.log(topHeadlines);
-
 
 	const renderList = topHeadlines.map(topHeadline => {
 		const {title, urlToImage} = topHeadline;

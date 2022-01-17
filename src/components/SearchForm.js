@@ -12,9 +12,9 @@ const SearchForm = (props) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const clearInput = () => {
-		ref.current.value = '';
-	}
+	// const clearInput = () => {
+	// 	ref.current.value = '';
+	// }
 
 	const renderInput = ({input}) => {
 		return (
