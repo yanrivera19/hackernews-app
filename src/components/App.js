@@ -3,7 +3,7 @@ import Header from './Header';
 import PopularNews from './PopularNews';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import MainNewsFeed from './MainNewsFeed';
-import SelectedMainNews from './SelectedMainNews';
+import SelectedNews from './SelectedNews';
 import SelectedTopNews from './SelectedTopNews';
 import SearchedNews from './SearchedNews';
 
@@ -17,8 +17,8 @@ const App = () => {
 						<Routes>
 							<Route path={'/'} element={<MainNewsFeed/>}/>
 							<Route path={'/search/:newsTitle'} element={<SearchedNews/>}/>
-							<Route path={'/newsDetails/:newsTitle'} element={<SelectedMainNews/>}/>
-							<Route path={'/search/newsDetails/:newsTitle'} element={<SelectedMainNews/>}/>
+							<Route path={'/newsDetails/:newsTitle'} element={<SelectedNews/>}/>
+							<Route path={'/search/newsDetails/:newsTitle'} element={<SelectedNews/>}/>
 							<Route path={'/topNewsDetails/:topNewsTitle'} element={<SelectedTopNews/>}/>
 						</Routes>
 						<PopularNews />

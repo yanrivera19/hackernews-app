@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect, useSelector} from 'react-redux';
-import {fetchMainNews} from '../actions';
+import {fetchNews} from '../actions';
 import NewsList from './NewsList';
 
 
@@ -8,12 +8,12 @@ const MainNewsFeed = (props) => {
 	const mainNews = useSelector(state => state.mainNews);
 
 	useEffect(() => {
-		props.fetchMainNews('Technology')
+		props.fetchNews('Technology')
 	}, [])
 
 	const renderList = mainNews.map(mainNews => {
 		return (
-			<NewsList mainNews={mainNews} />
+			<NewsList key={mainNews.title} mainNews={mainNews} />
 		);
 	});
 
@@ -24,5 +24,5 @@ const MainNewsFeed = (props) => {
 	);
 };
 
-export default connect(null, {fetchMainNews})(MainNewsFeed);
+export default connect(null, {fetchNews})(MainNewsFeed);
 

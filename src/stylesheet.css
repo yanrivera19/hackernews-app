@@ -12,6 +12,12 @@
   transition: opacity 0.15s linear;
 }
 
+/*.search-btn {
+  position:relative;
+  display: flex;
+  text-align: right;
+}*/
+
 .news-title {
   color: #333333
 }

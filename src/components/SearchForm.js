@@ -1,20 +1,13 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { Form, Field } from 'react-final-form';
-import {fetchMainNews, removeNews} from '../actions';
+import {fetchNews} from '../actions';
 import { connect, useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom';
+import SearchedNews from './SearchedNews';
 
 const SearchForm = (props) => {
 	const ref = useRef();
-	const searchTerm = useSelector(state => state.mainNews);
-	const {title} = searchTerm;
-
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
-	// const clearInput = () => {
-	// 	ref.current.value = '';
-	// }
 
 	const renderInput = ({input}) => {
 		return (
@@ -25,11 +18,25 @@ const SearchForm = (props) => {
 	};
 
 	const onSubmit = formValues => {
-		const formValuesString = JSON.stringify(formValues)
 		if (formValues && formValues !== '') {
-			props.fetchMainNews(formValues);			
-			navigate(`/search/${formValuesString}`);
+			props.fetchNews(formValues.search);
+			saveToLocalStorage(formValues.search);			
+			navigate(`/search/${formValues.search}`);
 		}
+	};
+
+	const saveToLocalStorage = (term) => {
+		let searchTerm;
+
+		if(localStorage.getItem("searchTerm") === null) {
+			searchTerm = [];
+		} else {
+			searchTerm = JSON.parse(localStorage.getItem("searchTerm"));
+		};	
+
+		searchTerm.shift();
+		searchTerm.push(term);
+		localStorage.setItem("searchTerm", JSON.stringify(searchTerm));
 	};
 
 	return (
@@ -44,4 +51,4 @@ const SearchForm = (props) => {
 	);
 };
 
-export default connect(null, {fetchMainNews})(SearchForm);
+export default connect(null, {fetchNews})(SearchForm);

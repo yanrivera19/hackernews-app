@@ -11,8 +11,6 @@ const PopularNews = (props) => {
 		props.fetchTopNews('Technology')
 	}, []);
 
-	console.log(topHeadlines);
-
 	const renderList = topHeadlines.map(topHeadline => {
 		const {title, urlToImage} = topHeadline;
 		return (

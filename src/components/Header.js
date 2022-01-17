@@ -19,7 +19,7 @@ const Header = () => {
 						<h1 className="navbar-brand fs-1">The Hacker News</h1>
 					</Link>							    
 			    	<div>
-				    	<button className="btn-sm btn-outline-dark" type="button" onClick={handleClick} data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+				    	<button className="btn-sm btn-outline-dark" type="button" onClick={handleClick}> 
 				    		<span className="fas fa-search"></span>
 				    	</button>
 				    </div>				    	

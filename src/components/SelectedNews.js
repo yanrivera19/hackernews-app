@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react';
-import {fetchSelectedMainNews, removeNews} from '../actions';
+import {fetchSelectedNews} from '../actions';
 import {connect, useSelector, useDispatch} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import NewsDetails from './NewsDetails';
 
-const SelectedMainNews = (props) => {
+const SelectedNews = (props) => {
 	const selectedNews = useSelector(state => state.selectedNews);
-	// const dispatch = useDispatch();
 	const {newsTitle} = useParams();
 	
 	console.log(newsTitle)
@@ -15,7 +14,7 @@ const SelectedMainNews = (props) => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		if (newsTitle && newsTitle !== '') {
-			props.fetchSelectedMainNews(newsTitle);
+			props.fetchSelectedNews(newsTitle);
 		}
 	}, []);
 
@@ -24,4 +23,4 @@ const SelectedMainNews = (props) => {
 	);
 };
 
-export default connect(null, {fetchSelectedMainNews})(SelectedMainNews);
+export default connect(null, {fetchSelectedNews})(SelectedNews);

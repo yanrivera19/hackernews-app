@@ -1,26 +1,33 @@
-import React, {useEffect} from 'react';
-import {useSelector} from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import {useSelector, connect} from 'react-redux';
 import NewsList from './NewsList';
+import {fetchNews} from '../actions';
 
 const SearchedNews = (props) => {
-	const mainNews = useSelector(state => state.mainNews);
+	const searchedNews = useSelector(state => state.mainNews);
+
+	useEffect(() => {
+		const searchTerm = JSON.parse(localStorage.getItem("searchTerm"));
+
+		props.fetchNews(searchTerm[0]);
+	}, [])
 	
-	const renderList = mainNews.map(mainNews => {
+	const renderList = searchedNews.map(searchedNews => {
 		return (
-			<NewsList mainNews={mainNews} />
+			searchedNews.length === 0 ? (
+				<div>Sorry, no results were found.</div>
+			) : (
+				<NewsList key={searchedNews.title} mainNews={searchedNews} />
+			)
 		);
 	});
 
-	return (
-		mainNews.length === 0 ? (
-			<div>Sorry, no results were found.</div>
-		) : (
-			<div className="col-md-8">
-				<div>{renderList}</div>
-			</div>
-		)
+	return (		
+		<div className="col-md-8">
+			<div>{renderList}</div>
+		</div>		
 	);
 };
 
-export default SearchedNews;
+export default connect(null, {fetchNews})(SearchedNews);
 

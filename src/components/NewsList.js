@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 const NewsList = (props) => {
 	const {mainNews} = props;
+	console.log(mainNews)
 	const {title, urlToImage, author, description, publishedAt} = mainNews;
 
 	const time = new Date(publishedAt).getTime();
