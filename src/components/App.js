@@ -18,7 +18,6 @@ const App = () => {
 							<Route path={'/'} element={<MainNewsFeed/>}/>
 							<Route path={'/search/:newsTitle'} element={<SearchedNews/>}/>
 							<Route path={'/newsDetails/:newsTitle'} element={<SelectedNews/>}/>
-							<Route path={'/search/newsDetails/:newsTitle'} element={<SelectedNews/>}/>
 							<Route path={'/topNewsDetails/:topNewsTitle'} element={<SelectedTopNews/>}/>
 						</Routes>
 						<PopularNews />
