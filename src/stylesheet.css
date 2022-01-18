@@ -1,5 +1,14 @@
+*{
+  
+}
+
 .search-bar {
   width: 100%
+}
+
+.navbar {
+  background-color: royalblue;
+  font-family: 'PRIMETIME', sans-serif !important;
 }
 
 .active {

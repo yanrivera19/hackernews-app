@@ -16,9 +16,9 @@ const App = () => {
 					<div className="row">
 						<Routes>
 							<Route path={'/'} element={<MainNewsFeed/>}/>
-							<Route path={'/search/:newsTitle'} element={<SearchedNews/>}/>
-							<Route path={'/newsDetails/:newsTitle'} element={<SelectedNews/>}/>
-							<Route path={'/topNewsDetails/:topNewsTitle'} element={<SelectedTopNews/>}/>
+							<Route path={'/search/:newsIndex'} element={<SearchedNews/>}/>
+							<Route path={'/newsDetails/:newsIndex'} element={<SelectedNews/>}/>
+							<Route path={'/topNewsDetails/:topNewsIndex'} element={<SelectedTopNews/>}/>
 						</Routes>
 						<PopularNews />
 					</div>

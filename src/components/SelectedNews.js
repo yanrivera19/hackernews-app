@@ -1,22 +1,19 @@
 import React, {useEffect} from 'react';
-import {fetchSelectedNews} from '../actions';
 import {connect, useSelector, useDispatch} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import NewsDetails from './NewsDetails';
 
-const SelectedNews = (props) => {
-	const {newsTitle} = useParams();
+const SelectedNews = () => {
+	const {newsIndex} = useParams();
+	const mainNews = useSelector(state => state.mainNews)
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		if (newsTitle && newsTitle !== '') {
-			props.fetchSelectedNews(newsTitle);
-		}
 	}, []);
 
 	return (
-		<NewsDetails />
+		<NewsDetails selectedNews={mainNews} index={newsIndex}/>
 	);
 };
 
-export default connect(null, {fetchSelectedNews})(SelectedNews);
+export default SelectedNews;

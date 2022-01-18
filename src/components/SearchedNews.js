@@ -3,21 +3,15 @@ import {useSelector, connect} from 'react-redux';
 import NewsList from './NewsList';
 import {fetchNews} from '../actions';
 
-const SearchedNews = (props) => {
+const SearchedNews = () => {
 	const searchedNews = useSelector(state => state.mainNews);
 
-	useEffect(() => {
-		const searchTerm = JSON.parse(localStorage.getItem("searchTerm"));
-
-		props.fetchNews(searchTerm[0]);
-	}, [])
-	
-	const renderList = searchedNews.map(searchedNews => {
+	const renderList = searchedNews.map((searchedNews, index) => {
 		return (
 			searchedNews.length === 0 ? (
 				<div>Sorry, no results were found.</div>
 			) : (
-				<NewsList key={searchedNews.title} mainNews={searchedNews} />
+				<NewsList key={index} index={index}/>
 			)
 		);
 	});
@@ -29,5 +23,5 @@ const SearchedNews = (props) => {
 	);
 };
 
-export default connect(null, {fetchNews})(SearchedNews);
+export default SearchedNews;
 

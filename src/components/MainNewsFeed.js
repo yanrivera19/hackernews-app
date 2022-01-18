@@ -11,9 +11,9 @@ const MainNewsFeed = (props) => {
 		props.fetchNews('Technology')
 	}, [])
 
-	const renderList = mainNews.map(mainNews => {
+	const renderList = mainNews.map((mainNews, index) => {
 		return (
-			<NewsList key={mainNews.title} mainNews={mainNews} />
+			<NewsList key={index} index={index} />
 		);
 	});
 

@@ -11,11 +11,11 @@ const PopularNews = (props) => {
 		props.fetchTopNews('Technology')
 	}, []);
 
-	const renderList = topHeadlines.map(topHeadline => {
+	const renderList = topHeadlines.map((topHeadline, index) => {
 		const {title, urlToImage} = topHeadline;
 		return (
-			<div key={title} className="news-container pop-container">
-				<Link to={`/topNewsDetails/${title}`} style={{ textDecoration: 'none' }}> 
+			<div key={index} className="news-container pop-container">
+				<Link to={`/topNewsDetails/${index}`} style={{ textDecoration: 'none' }}> 
   					<div style={{paddingBottom: '20px'}}>
   						<img  src={urlToImage} className="pop-img" />
   						<p className="news-title pop-title fw-bold">{title}</p>

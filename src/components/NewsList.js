@@ -1,11 +1,11 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import {Card, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-const NewsList = (props) => {
-	const {mainNews} = props;
-	console.log(mainNews)
-	const {title, urlToImage, author, description, publishedAt} = mainNews;
+const NewsList = ({index}) => {
+	const mainNews = useSelector(state => state.mainNews);
+	const {title, urlToImage, author, description, publishedAt} = mainNews[index];
 
 	const time = new Date(publishedAt).getTime();
 	const day = new Date(time).getDate();
@@ -15,16 +15,20 @@ const NewsList = (props) => {
 	const year = new Date(time).getFullYear();
 	const newsDate = `${month} ${day}, ${year}`;
 
+	console.log(author)
+
 	return (
-		<div key={title} className="news-container pb-4">
-			<Link to={`/newsDetails/${title}`} style={{ textDecoration: 'none' }}> 
+		<div key={index} className="news-container pb-4">
+			<Link to={`/newsDetails/${index}`} style={{ textDecoration: 'none' }}> 
 				<Card className="news-card">
 				  <Card.Img variant="top" src={urlToImage} />
 				  <Card.Body>
 				    <Card.Title className="news-title">{title}</Card.Title>
-				    <div className="d-inline-flex date-author">					    	
+				    <div className="d-inline-flex date-author">				    	
 				    	<p style={{paddingRight: 20}}><i className="fa-regular fa-calendar-days" style={{paddingRight: 8}}></i>{newsDate}</p>					    	
-				    	<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>{author}</p>
+				    	{author === null ?
+				    	(<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>Unknown</p>) :
+				    	(<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>{author}</p>) }				    	
 				    </div>
 				    <Card.Text className="news-content">{description}</Card.Text>
 				    <Button variant="primary">Read More</Button>

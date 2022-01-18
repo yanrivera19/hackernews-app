@@ -12,15 +12,15 @@ const Header = () => {
 	console.log(isClicked)
 
 	return (
-		<div style={{paddingBottom: '30px'}}>
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
-				<div className="container-fluid" id="content">
+		<div style={{paddingBottom: '20px'}}>
+			<nav className="navbar navbar-expand-lg navbar-light" style={{paddingBottom: '40px'}}>
+				<div id="content" className="container-fluid">
 					<Link to="/" style={{ textDecoration: 'none' }}>		
-						<h1 className="navbar-brand fs-1">The Hacker News</h1>
+						<h1 className="navbar-brand text-light fs-1">The Hacker News</h1>
 					</Link>							    
 			    	<div>
 				    	<button className="btn-sm btn-outline-dark" type="button" onClick={handleClick}> 
-				    		<span className="fas fa-search"></span>
+				    		<i className="fas fa-search"></i>
 				    	</button>
 				    </div>				    	
 				</div>

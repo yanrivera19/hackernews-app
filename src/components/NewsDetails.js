@@ -1,9 +1,9 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
+import {useParams} from 'react-router-dom';
 
-const NewsDetails = () => {
-	const selectedNews = useSelector(state => state.selectedNews);
-	const {title, urlToImage, content, author, publishedAt} = selectedNews;
+const NewsDetails = ({selectedNews, index}) => {
+	const {title, urlToImage, content, author, publishedAt} = selectedNews[index];
 
 	const time = new Date(publishedAt).getTime();
 	const day = new Date(time).getDate();
@@ -22,7 +22,9 @@ const NewsDetails = () => {
 					<h1 className="news-title">{title}</h1>
 					<div className="d-inline-flex date-author">
 						<p style={{paddingRight: 20}}><i className="fa-regular fa-calendar-days" style={{paddingRight: 8}}></i>{newsDate}</p>					    	
-					    <p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>{author}</p>
+					    {author === null ?
+				    	(<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>Unknown</p>) :
+				    	(<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>{author}</p>) }
 					</div>
 					<img className="selected-news-img" style={{width: '18rem'}} src={urlToImage} alt="newsPic"/>
 					<div className="news-content">

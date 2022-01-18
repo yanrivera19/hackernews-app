@@ -1,10 +1,7 @@
 import news from '../apis/news';
 import {
 	FETCH_NEWS, 
-	FETCH_TOP_NEWS,
-	FETCH_SELECTED_NEWS,
-	FETCH_SELECTED_TOP_NEWS,
-	// REMOVE_NEWS
+	FETCH_TOP_NEWS
 } from './types';
 
 export const fetchNews = term => async dispatch => {
@@ -33,34 +30,3 @@ export const fetchTopNews = term => async dispatch => {
 
 	dispatch({type: FETCH_TOP_NEWS, payload: response.data.articles});
 };
-
-export const fetchSelectedNews = (title) => async dispatch => {
-	const response = await news.get('/everything', {
-		params: {
-			q: title
-		}
-	});
-
-	console.log('success')
-
-	dispatch({type: FETCH_SELECTED_NEWS, payload: response.data.articles[0]})
-};
-
-export const fetchSelectedTopNews = (title) => async dispatch => {
-	const response = await news.get('/top-headlines', {
-		params: {
-			q: title
-		}
-	});
-	console.log('success')
-
-	dispatch({type: FETCH_SELECTED_TOP_NEWS, payload: response.data.articles[0]})
-};
-
-// export const removeNews = () => {
-// 	return {
-// 		type: REMOVE_NEWS	
-// 	};
-// 
-// 	console.log('success')
-// };
