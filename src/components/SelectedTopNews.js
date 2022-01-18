@@ -5,8 +5,6 @@ import {useParams} from 'react-router-dom';
 import NewsDetails from './NewsDetails';
 
 const SelectedTopNews = (props) => {
-	const selectedNews = useSelector(state => state.selectedNews);
-	// const dispatch = useDispatch();
 	const {topNewsTitle} = useParams();
 
 	console.log(topNewsTitle)
@@ -20,7 +18,7 @@ const SelectedTopNews = (props) => {
 	}, []);
 
 	return (
-		<NewsDetails selectedNews={selectedNews}/>
+		<NewsDetails />
 	);
 };
 

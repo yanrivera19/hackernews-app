@@ -1,7 +1,8 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 
-const NewsDetails = (props) => {
-	const{selectedNews, selectedTopNews} = props;
+const NewsDetails = () => {
+	const selectedNews = useSelector(state => state.selectedNews);
 	const {title, urlToImage, content, author, publishedAt} = selectedNews;
 
 	const time = new Date(publishedAt).getTime();
@@ -14,7 +15,7 @@ const NewsDetails = (props) => {
 
 	return (
 		<div className="col-md-8">
-			{props.length === 0 ? (
+			{selectedNews.length === 0 ? (
 				<div>Loading...</div>
 			) : (
 				<div>

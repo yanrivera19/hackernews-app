@@ -5,11 +5,7 @@ import {useParams} from 'react-router-dom';
 import NewsDetails from './NewsDetails';
 
 const SelectedNews = (props) => {
-	const selectedNews = useSelector(state => state.selectedNews);
 	const {newsTitle} = useParams();
-	
-	console.log(newsTitle)
-	console.log(selectedNews)
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -19,7 +15,7 @@ const SelectedNews = (props) => {
 	}, []);
 
 	return (
-		<NewsDetails selectedNews={selectedNews}/>
+		<NewsDetails />
 	);
 };
 
