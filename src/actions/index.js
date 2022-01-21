@@ -32,20 +32,6 @@ export const fetchTopNews = term => async dispatch => {
 	dispatch({type: FETCH_TOP_NEWS, payload: response.data.articles});
 };
 
-export const fetchNewsByPage = (newsTerm, currentPage) => async dispatch => {
-	const response = await news.get('/everything', {
-		params: {
-			q: newsTerm,
-			pageSize: 8,
-			page: currentPage,
-			language: 'en',
-			sortBy: 'publishedAt'
-		}
-	});
-
-	dispatch({type: FETCH_NEWS, payload: response.data.articles});
-};
-
 export const setNewsTerm = term  => {
 	return {
 		type: SET_NEWS_TERM,
