@@ -1,10 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, connect} from 'react-redux';
 import NewsList from './NewsList';
-import {fetchNews} from '../actions';
+import {setPageNumber} from '../actions';
 
-const SearchedNews = () => {
+const SearchedNews = (props) => {
 	const searchedNews = useSelector(state => state.mainNews);
+	const pageNumber = useSelector(state => state.pageNumber);
+
+	useEffect(() => {
+		props.setPageNumber(1)
+	})
 
 	const renderList = searchedNews.map((searchedNews, index) => {
 		return (
@@ -23,5 +28,5 @@ const SearchedNews = () => {
 	);
 };
 
-export default SearchedNews;
+export default connect(null, {setPageNumber})(SearchedNews);
 

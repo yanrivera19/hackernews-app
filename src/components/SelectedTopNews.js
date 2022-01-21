@@ -5,7 +5,7 @@ import NewsDetails from './NewsDetails';
 
 const SelectedTopNews = () => {
 	const {topNewsIndex} = useParams();
-	const topHeadlines = useSelector(state => state.topHeadlines)
+	const topHeadlines = useSelector(state => state.topHeadlines);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);

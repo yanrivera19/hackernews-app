@@ -16,9 +16,12 @@ const PopularNews = (props) => {
 		return (
 			<div key={index} className="news-container pop-container">
 				<Link to={`/topNewsDetails/${index}`} style={{ textDecoration: 'none' }}> 
-  					<div style={{paddingBottom: '20px'}}>
-  						<img  src={urlToImage} className="pop-img" />
-  						<p className="news-title pop-title fw-bold">{title}</p>
+  					<div style={{paddingBottom: '10px'}}>
+  						{urlToImage === null ? (
+						<img className="pop-img" src="https://img.icons8.com/color/344/no-image.png" alt="newsPic"/>) : (
+						<img  src={urlToImage} className="pop-img" />
+						)}
+  						<p className=" pop-title fw-bold">{title}</p>
   					</div>					
     			</Link>
 			</div>		
@@ -26,8 +29,8 @@ const PopularNews = (props) => {
 	});	
 
 	return (
-		<div className="col-md-4 pop-news">
-			<h4 className="pb-3" style={{textDecoration: 'underline'}}>Popular This Week</h4>
+		<div className="col-md-3 pop-news">
+			<h5 className="pb-3 ptw-head" style={{textDecoration: 'underline'}}>Popular This Week</h5>
 			<div>{renderList}</div>
 		</div>
 	);

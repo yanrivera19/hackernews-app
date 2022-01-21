@@ -1,46 +1,44 @@
-*{
-  
+* {
+   font-family: 'Roboto', sans-serif;
 }
 
 .search-bar {
-  width: 100%
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px
 }
 
 .navbar {
   background-color: royalblue;
+}
+
+.navbar-brand {
   font-family: 'PRIMETIME', sans-serif !important;
 }
 
-.active {
-  opacity: 0;
-  transition: opacity 0.15s linear;
-}
-
-.second-nav {
-  opacity: 1;
-  transition: opacity 0.15s linear;
-}
-
-/*.search-btn {
-  position:relative;
-  display: flex;
-  text-align: right;
-}*/
-
-.news-title {
-  color: #333333
+.news-title, .selected-title, .pop-title, 
+.ptw-head {
+  color: #333333;
+  font-family: 'Roboto Black', sans-serif;
 }
 
 .news-container:hover .news-title {
   text-decoration: underline;
 }
 
-.date-author {
-  color: #555555;
-  font-size: 13px;
+.news-container:hover .pop-title {
+  text-decoration: underline;
 }
 
-.news-content {
+.nl-container {
+  padding-bottom: 20px;
+}
+
+.date-author, .selected-dateAuthor {
+  color: #555555;
+}
+
+.news-content, .news-description {
   color: #444444
 }
 
@@ -54,17 +52,21 @@
   padding-right: 30px
 }
 
+.news-img {
+  padding-bottom: 10px;  
+  width: 100%
+}
+
 .pop-img {
   float: left;
   padding-right: 10px;
   width: 100px
-
 }
 
 @media only screen and (min-width: 991.98px) {
   .page-content {
-  padding-left: 100px;
-  padding-right: 100px
+    padding-left: 80px;
+    padding-right: 80px
   }
 
   .navbar {
@@ -72,15 +74,47 @@
     padding-left: 40px
   }
 
-  .news-card {
-    width: 30rem
+  .search-bar {
+    padding-left: 100px;
+    padding-right: 100px
+  }
+
+  .nl-container {
+    padding-bottom: 45px;
   }
 
   .pop-news {
-    padding-top: 400px
+    padding-top: 300px
   }
 
   .selected-news-img {
-    width: 35rem !important;
+    width: 32rem !important;
+  }
+
+  .news-img {
+    float: left;
+    padding-right: 10px;
+    width: 230px;
+    max-height: 180px
+  }
+
+  .news-title {
+    font-size: 15px;
+  }
+
+  .date-author {
+    font-size: 10px;
+  }
+
+  .news-description {
+    font-size: 12px;
+  }
+
+  .selected-title {
+    font-size: 35px !important;
+  }
+
+  .news-content {
+    font-size: 16px
   }
 }  

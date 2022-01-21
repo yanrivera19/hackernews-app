@@ -5,7 +5,7 @@ import NewsDetails from './NewsDetails';
 
 const SelectedNews = () => {
 	const {newsIndex} = useParams();
-	const mainNews = useSelector(state => state.mainNews)
+	const mainNews = useSelector(state => state.mainNews);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);

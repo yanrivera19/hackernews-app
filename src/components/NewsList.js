@@ -18,25 +18,26 @@ const NewsList = ({index}) => {
 	console.log(author)
 
 	return (
-		<div key={index} className="news-container pb-4">
+		<div key={index} className="news-container pb-3" >
 			<Link to={`/newsDetails/${index}`} style={{ textDecoration: 'none' }}> 
-				<Card className="news-card">
-				  <Card.Img variant="top" src={urlToImage} />
-				  <Card.Body>
-				    <Card.Title className="news-title">{title}</Card.Title>
-				    <div className="d-inline-flex date-author">				    	
-				    	<p style={{paddingRight: 20}}><i className="fa-regular fa-calendar-days" style={{paddingRight: 8}}></i>{newsDate}</p>					    	
-				    	{author === null ?
-				    	(<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>Unknown</p>) :
-				    	(<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>{author}</p>) }				    	
+				<div className="nl-container">
+					{ urlToImage === null ? 
+						(<img className="news-img" style={{height: '150px'}}  src="https://img.icons8.com/color/344/no-image.png" alt="newsPic"/>) : 
+						(<img className="news-img"  src={urlToImage} alt="newsPic"/>)
+					}
+					<p className="news-title fw-bold" style={{ overflow: 'hidden'}}>{title}</p>
+					<div className="d-inline-flex date-author" style={{ overflow: 'hidden'}}>	
+		    			<p style={{paddingRight: 20}}><i className="fa-regular fa-calendar-days" style={{paddingRight: 8}}></i>{newsDate}</p>					    	
+				    	{ author === null ?
+					    	(<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>Unknown</p>) :
+					    	(<p><i className="fa-solid fa-user" style={{paddingRight: 8}}></i>{author}</p>) 
+					    }				    	
 				    </div>
-				    <Card.Text className="news-content">{description}</Card.Text>
-				    <Button variant="primary">Read More</Button>
-				  </Card.Body>
-				</Card>
+		    		<p className="news-description" style={{ overflow: 'hidden'}}>{description}</p>
+				</div>					
 			</Link>
 		</div>
-	)
-}
+	);
+};
 
 export default NewsList;

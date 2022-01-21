@@ -1,17 +1,14 @@
 import React, {useEffect} from 'react';
 import {connect, useSelector} from 'react-redux';
-import {fetchNews, setNewsTerm, setPageNumber} from '../actions';
+import {fetchNews, setNewsTerm} from '../actions';
 import NewsList from './NewsList';
 
-
-const MainNewsFeed = (props) => {
+const PaginatedNewsFeed = (props) => {
 	const mainNews = useSelector(state => state.mainNews);
-	const pageNumber = useSelector(state => state.pageNumber);
+	const newsTerm = useSelector(state => state.newsTerm);
 
 	useEffect(() => {
-		props.fetchNews('Technology', 1);
-		props.setNewsTerm('Technology');
-		props.setPageNumber(1)
+		props.fetchNews(newsTerm)
 	}, [])
 
 	const renderList = mainNews.map((mainNews, index) => {
@@ -27,5 +24,5 @@ const MainNewsFeed = (props) => {
 	);
 };
 
-export default connect(null, {fetchNews, setNewsTerm, setPageNumber})(MainNewsFeed);
+export default connect(null, {fetchNews})(PaginatedNewsFeed);
 
