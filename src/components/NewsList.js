@@ -34,7 +34,8 @@ const NewsList = ({index}) => {
 					    }				    	
 				    </div>
 		    		<p className="news-description" style={{ overflow: 'hidden'}}>{description}</p>
-				</div>					
+				</div>
+				<hr/>					
 			</Link>
 		</div>
 	);

@@ -8,7 +8,7 @@ const PopularNews = (props) => {
 	const topHeadlines = useSelector(state => state.topHeadlines);
 	
 	useEffect(() => {
-		props.fetchTopNews('Technology')
+		props.fetchTopNews('technology')
 	}, []);
 
 	const renderList = topHeadlines.map((topHeadline, index) => {

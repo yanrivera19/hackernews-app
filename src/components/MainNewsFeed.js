@@ -9,8 +9,8 @@ const MainNewsFeed = (props) => {
 	const pageNumber = useSelector(state => state.pageNumber);
 
 	useEffect(() => {
-		props.fetchNews('Technology', 1);
-		props.setNewsTerm('Technology');
+		props.fetchNews('cybersecurity', 1);
+		props.setNewsTerm('cybersecurity');
 		props.setPageNumber(1)
 	}, [])
 

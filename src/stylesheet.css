@@ -54,7 +54,8 @@
 
 .news-img {
   padding-bottom: 10px;  
-  width: 100%
+  width: 100%;
+  max-height: 280px
 }
 
 .pop-img {
@@ -94,8 +95,9 @@
   .news-img {
     float: left;
     padding-right: 10px;
+    /*padding-bottom: 20px;*/
     width: 230px;
-    max-height: 180px
+    max-height: 170px
   }
 
   .news-title {
