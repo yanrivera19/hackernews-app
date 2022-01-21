@@ -89,7 +89,8 @@
   }
 
   .selected-news-img {
-    width: 32rem !important;
+    width: 510px !important;
+    max-height: 400px;
   }
 
   .news-img {
