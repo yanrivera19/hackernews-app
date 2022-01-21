@@ -6,6 +6,7 @@ import {setPageNumber} from '../actions';
 const SearchedNews = (props) => {
 	const searchedNews = useSelector(state => state.mainNews);
 	const pageNumber = useSelector(state => state.pageNumber);
+	const newsTerm = useSelector(state => state.newsTerm);
 
 	useEffect(() => {
 		props.setPageNumber(1)
@@ -13,17 +14,20 @@ const SearchedNews = (props) => {
 
 	const renderList = searchedNews.map((searchedNews, index) => {
 		return (
-			searchedNews.length === 0 ? (
-				<div>Sorry, no results were found.</div>
-			) : (
-				<NewsList key={index} index={index}/>
-			)
+			<NewsList key={index} index={index}/>
 		);
 	});
 
 	return (		
 		<div className="col-md-8">
-			<div>{renderList}</div>
+			{searchedNews.length > 0 ? (
+				<>
+					<h5 className="results-msg" style={{paddingBottom: '30px'}}>{`Search results for ${newsTerm}:`}</h5>
+					<div>{renderList}</div>
+				</>	
+			) : (
+				<h4 className="no-results-msg" style={{paddingBottom: '40px'}}>Sorry, no results were found :(</h4>
+			) }		
 		</div>		
 	);
 };
