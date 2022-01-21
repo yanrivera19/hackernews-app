@@ -3,7 +3,7 @@ import Header from './Header';
 import PopularNews from './PopularNews';
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import {connect, useSelector} from 'react-redux';
-import MainNewsFeed from './MainNewsFeed';
+import HomePage from './HomePage';
 import SelectedNews from './SelectedNews';
 import SelectedTopNews from './SelectedTopNews';
 import SearchedNews from './SearchedNews';
@@ -13,9 +13,7 @@ import {fetchNews, setPageNumber} from '../actions'
 
 const App = props => {
 	const newsTerm = useSelector(state => state.newsTerm);
-	console.log(newsTerm)
 	const pageNumber = useSelector(state => state.pageNumber);
-	console.log(pageNumber)
 	const navigate = useNavigate();
 	
 	let forcePageObj = {}
@@ -38,7 +36,7 @@ const App = props => {
 			<div className="container-fluid page-content">
 				<div className="row gx-5">
 					<Routes>
-						<Route path={'/'} element={<MainNewsFeed/>}/>
+						<Route path={'/'} element={<HomePage/>}/>
 						<Route path={'/news/:newsTerm'} element={<PaginatedNewsFeed/>}/>
 						<Route path={'/:newsTerm'} element={<SearchedNews/>}/>
 						<Route path={'/newsDetails/:newsIndex'} element={<SelectedNews/>}/>

@@ -3,8 +3,7 @@ import {connect, useSelector} from 'react-redux';
 import {fetchNews, setNewsTerm, setPageNumber} from '../actions';
 import NewsList from './NewsList';
 
-
-const MainNewsFeed = (props) => {
+const HomePage = (props) => {
 	const mainNews = useSelector(state => state.mainNews);
 	const pageNumber = useSelector(state => state.pageNumber);
 
@@ -27,5 +26,5 @@ const MainNewsFeed = (props) => {
 	);
 };
 
-export default connect(null, {fetchNews, setNewsTerm, setPageNumber})(MainNewsFeed);
+export default connect(null, {fetchNews, setNewsTerm, setPageNumber})(HomePage);
 
