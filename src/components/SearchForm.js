@@ -20,7 +20,7 @@ const SearchForm = (props) => {
 
 	const clearInput = () => {
 		setTerm('')
-	};
+	}
 
 	return (
 		<form onSubmit={onSubmit}>

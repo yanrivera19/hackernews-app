@@ -24,11 +24,18 @@ const App = props => {
 	const handlePageClick = data => {
 		const currentPage = data.selected + 1;
 
-		props.fetchNews(newsTerm, currentPage);
-		props.setPageNumber(currentPage);
-		navigate(`/news/${newsTerm}`)
-		window.scrollTo(0, 0);
+		if (currentPage === 1) {
+			navigate('/');
+			window.scrollTo(0, 0);
+		} else {
+			console.log(currentPage)
+			props.setPageNumber(currentPage);
+			props.fetchNews(newsTerm, currentPage);
+			navigate(`/${newsTerm}/page-${currentPage}`)
+			window.scrollTo(0, 0);
+		}
 	}
+	console.log(pageNumber)
 
 	return (
 		<>
@@ -37,7 +44,7 @@ const App = props => {
 				<div className="row gx-5">
 					<Routes>
 						<Route path={'/'} element={<HomePage/>}/>
-						<Route path={'/news/:newsTerm'} element={<PaginatedNewsFeed/>}/>
+						<Route path={'/:newsTerm/:pageNumber'} element={<PaginatedNewsFeed/>}/>
 						<Route path={'/:newsTerm'} element={<SearchedNews/>}/>
 						<Route path={'/newsDetails/:newsIndex'} element={<SelectedNews/>}/>
 						<Route path={'/topNewsDetails/:topNewsIndex'} element={<SelectedTopNews/>}/>

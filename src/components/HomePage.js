@@ -8,9 +8,10 @@ const HomePage = (props) => {
 	const pageNumber = useSelector(state => state.pageNumber);
 
 	useEffect(() => {
-		props.fetchNews('cybersecurity', 1);
-		props.setNewsTerm('cybersecurity');
 		props.setPageNumber(1)
+		props.fetchNews('cybersecurity', 1);
+		props.setNewsTerm('cybersecurity');		
+		console.log(pageNumber)
 	}, [])
 
 	const renderList = mainNews.map((mainNews, index) => {
