@@ -14,7 +14,6 @@ const App = props => {
 	const mainNews = useSelector(state => state.mainNews.slice(0, 100));
 	const pageNumber = useSelector(state => state.pageNumber);
 	const newsPerPage = 10;
-	const newsSeen = pageNumber * newsPerPage;
 	const pageCount = Math.ceil(mainNews.length / newsPerPage);
 
 	const changePage = (data) => {
@@ -41,9 +40,10 @@ const App = props => {
 					<PopularNews />
 				</div>					
 					<ReactPaginate
-						previousLabel={"Previous"}
-				        nextLabel={"Next"}
+						previousLabel={"<<"}
+				        nextLabel={">>"}
 				        breakLabel={"..."}
+				        pageRangeDisplayed={1}
 				        pageCount={pageCount}
 				        {...forcePageObj}
 				        onPageChange={changePage}

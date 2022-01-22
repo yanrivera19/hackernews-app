@@ -7,14 +7,14 @@ const HomePage = (props) => {
 	const mainNews = useSelector(state => state.mainNews);
 	const pageNumber = useSelector(state => state.pageNumber);
 	const newsPerPage = 10;
-  	const newsSeen = pageNumber * newsPerPage;
+  	const firstNewsOnPage = pageNumber * newsPerPage;
 
 	useEffect(() => {
 		props.fetchNews('cybersecurity');
 		props.setNewsTerm('cybersecurity');	
 	}, []);
 
-	const renderList = mainNews.slice(newsSeen, newsSeen + newsPerPage).map((mainNews, index) => {
+	const renderList = mainNews.slice(firstNewsOnPage, firstNewsOnPage + newsPerPage).map((mainNews, index) => {
 		return (
 			<NewsList key={index} index={index} />
 		);

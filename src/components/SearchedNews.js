@@ -6,11 +6,10 @@ const SearchedNews = (props) => {
 	const searchedNews = useSelector(state => state.mainNews);
 	const pageNumber = useSelector(state => state.pageNumber);
 	const newsTerm = useSelector(state => state.newsTerm);
-
 	const newsPerPage = 10;
-  	const newsSeen = pageNumber * newsPerPage;
+  	const firstNewsOnPage = pageNumber * newsPerPage;
 
-	const renderList = searchedNews.slice(newsSeen, newsSeen + newsPerPage).map((searchedNews, index) => {
+	const renderList = searchedNews.slice(firstNewsOnPage, firstNewsOnPage + newsPerPage).map((searchedNews, index) => {
 		return (
 			<NewsList key={index} index={index}/>
 		);
