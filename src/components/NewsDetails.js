@@ -13,7 +13,7 @@ const NewsDetails = ({selectedNews, index}) => {
 	const newsDate = `${month} ${day}, ${year}`;
 
 	return (
-		<div className="col-md-8">
+		<div className="col-md-9">
 			{selectedNews.length === 0 ? (
 				<div>Loading...</div>
 			) : (

@@ -22,7 +22,7 @@ const App = props => {
 		window.scrollTo(0, 0);
 	};
 	
-	let forcePageObj = {};
+	const forcePageObj = {};
   	if (pageNumber === 0) {
     	forcePageObj['forcePage'] = 0;
   	};
