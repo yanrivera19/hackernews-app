@@ -1,14 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import SearchForm from './SearchForm';
+import {setPageNumber} from '../actions';
 
-const Header = () => {
+const Header = (props) => {
+
+	const resetPageNumber = () => {
+		props.setPageNumber(0);
+	}
+
 	return (
-		<div style={{paddingBottom: '20px'}}>
+		<div style={{paddingBottom: '20px'}} className="bg-light">
 			<nav className="navbar navbar-expand-lg navbar-light" style={{paddingBottom: '30px'}}>
 				<div id="content" className="container-fluid">
-					<Link to="/" style={{ textDecoration: 'none' }}>		
-						<h1 className="navbar-brand text-light fs-1">The Hacker News</h1>
+					<Link to="/" onClick={resetPageNumber} style={{ textDecoration: 'none' }}>		
+						<h1 className="navbar-brand text-light fs-1" >The Hacker News</h1>
 					</Link>							    			    	
 				</div>
 			</nav>
@@ -19,4 +26,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default connect(null, {setPageNumber})(Header);

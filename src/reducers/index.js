@@ -17,7 +17,7 @@ const INITIAL_STATE = {
 	mainNews: [],
 	topHeadlines: [],
 	newsTerm: [],
-	pageNumber: []
+	pageNumber: [0]
 };
 
 export const newsReducer = (state = INITIAL_STATE, action) => {

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect, useSelector} from 'react-redux';
 import {fetchTopNews} from '../actions';
-import {Card, } from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 const PopularNews = (props) => {
@@ -19,7 +19,7 @@ const PopularNews = (props) => {
   					<div style={{paddingBottom: '10px'}}>
   						{urlToImage === null ? (
 						<img className="pop-img" src="https://img.icons8.com/color/344/no-image.png" alt="newsPic"/>) : (
-						<img  src={urlToImage} className="pop-img" />
+						<img src={urlToImage} className="pop-img" alt="newsPic"/>
 						)}
   						<p className=" pop-title fw-bold">{title}</p>
   					</div>					

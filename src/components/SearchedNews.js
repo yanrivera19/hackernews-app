@@ -1,18 +1,16 @@
 import React, {useState, useEffect} from 'react';
-import {useSelector, connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import NewsList from './NewsList';
-import {setPageNumber} from '../actions';
 
 const SearchedNews = (props) => {
 	const searchedNews = useSelector(state => state.mainNews);
 	const pageNumber = useSelector(state => state.pageNumber);
 	const newsTerm = useSelector(state => state.newsTerm);
 
-	useEffect(() => {
-		props.setPageNumber(1)
-	})
+	const newsPerPage = 10;
+  	const newsSeen = pageNumber * newsPerPage;
 
-	const renderList = searchedNews.map((searchedNews, index) => {
+	const renderList = searchedNews.slice(newsSeen, newsSeen + newsPerPage).map((searchedNews, index) => {
 		return (
 			<NewsList key={index} index={index}/>
 		);
@@ -32,5 +30,5 @@ const SearchedNews = (props) => {
 	);
 };
 
-export default connect(null, {setPageNumber})(SearchedNews);
+export default SearchedNews;
 

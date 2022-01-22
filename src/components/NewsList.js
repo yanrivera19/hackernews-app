@@ -4,7 +4,11 @@ import {Card, Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 const NewsList = ({index}) => {
-	const mainNews = useSelector(state => state.mainNews);
+	const pageNumber = useSelector(state => state.pageNumber);
+	const newsPerPage = 10;
+  	const newsSeen = pageNumber * newsPerPage;
+
+	const mainNews = useSelector(state => state.mainNews.slice(newsSeen, newsSeen + newsPerPage));
 	const {title, urlToImage, author, description, publishedAt} = mainNews[index];
 
 	const time = new Date(publishedAt).getTime();
@@ -14,8 +18,6 @@ const NewsList = ({index}) => {
 	const month = monthNames[new Date(time).getMonth()];
 	const year = new Date(time).getFullYear();
 	const newsDate = `${month} ${day}, ${year}`;
-
-	console.log(author)
 
 	return (
 		<div key={index} className="news-container pb-3" >

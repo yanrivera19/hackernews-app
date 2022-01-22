@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {fetchNews, setNewsTerm} from '../actions';
+import {fetchNews, setNewsTerm, setPageNumber} from '../actions';
 import {connect, useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom';
 import SearchedNews from './SearchedNews';
@@ -11,16 +11,17 @@ const SearchForm = (props) => {
 	const onSubmit = event => {
 		event.preventDefault();
 
-		if (term && term !== '') {
+		if (term !== '') {
 			props.fetchNews(term);
 			props.setNewsTerm(term);
+			props.setPageNumber(0)
 			navigate(`/${term}`);
-		}
+		};
 	};
 
 	const clearInput = () => {
-		setTerm('')
-	}
+		setTerm('');
+	};
 
 	return (
 		<form onSubmit={onSubmit}>
@@ -32,4 +33,4 @@ const SearchForm = (props) => {
 	);
 };
 
-export default connect(null, {fetchNews, setNewsTerm})(SearchForm);
+export default connect(null, {fetchNews, setNewsTerm, setPageNumber})(SearchForm);

@@ -1,20 +1,20 @@
 import React, {useEffect} from 'react';
 import {connect, useSelector} from 'react-redux';
-import {fetchNews, setNewsTerm, setPageNumber} from '../actions';
+import {fetchNews, setNewsTerm} from '../actions';
 import NewsList from './NewsList';
 
 const HomePage = (props) => {
 	const mainNews = useSelector(state => state.mainNews);
 	const pageNumber = useSelector(state => state.pageNumber);
+	const newsPerPage = 10;
+  	const newsSeen = pageNumber * newsPerPage;
 
 	useEffect(() => {
-		props.setPageNumber(1)
-		props.fetchNews('cybersecurity', 1);
-		props.setNewsTerm('cybersecurity');		
-		console.log(pageNumber)
-	}, [])
+		props.fetchNews('cybersecurity');
+		props.setNewsTerm('cybersecurity');	
+	}, []);
 
-	const renderList = mainNews.map((mainNews, index) => {
+	const renderList = mainNews.slice(newsSeen, newsSeen + newsPerPage).map((mainNews, index) => {
 		return (
 			<NewsList key={index} index={index} />
 		);
@@ -27,5 +27,5 @@ const HomePage = (props) => {
 	);
 };
 
-export default connect(null, {fetchNews, setNewsTerm, setPageNumber})(HomePage);
+export default connect(null, {fetchNews, setNewsTerm})(HomePage);
 

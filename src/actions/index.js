@@ -6,12 +6,11 @@ import {
 	SET_PAGE_NUMBER
 } from './types';
 
-export const fetchNews = (term, currentPage) => async dispatch => {
+export const fetchNews = term => async dispatch => {
 	const response = await news.get('/everything', {
 		params: {
 			q: term,
-			pageSize: 10,
-			page: currentPage ,
+			pageSize: 100,
 			language: 'en',
 			sortBy: 'publishedAt'
 		}
