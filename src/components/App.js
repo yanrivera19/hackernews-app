@@ -39,6 +39,7 @@ const App = props => {
 						<Route path={'/topNewsDetails/:topNewsIndex'} element={<SelectedPopularNews/>}/>
 					</Routes>
 					<PopularNews />
+				</div>					
 					<ReactPaginate
 						previousLabel={"Previous"}
 				        nextLabel={"Next"}
@@ -56,8 +57,7 @@ const App = props => {
 				        breakClassName={"page-item"}
 				        breakLinkClassName={"page-link"}
 				        activeClassName={"active"}
-					/>
-				</div>
+					/>	
 			</div>
 		</>
 	);
