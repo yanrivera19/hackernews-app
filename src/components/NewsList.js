@@ -1,7 +1,6 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {Card, Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
 
 const NewsList = ({index}) => {	
 	const pageNumber = useSelector(state => state.pageNumber);
@@ -9,7 +8,7 @@ const NewsList = ({index}) => {
   	const firstNewsOnPage = pageNumber * newsPerPage;
   	const realIndex = index + newsPerPage * pageNumber;
 	const mainNews = useSelector(state => state.mainNews.slice(firstNewsOnPage, firstNewsOnPage + newsPerPage));
-	const {title, urlToImage, author, description, publishedAt} = mainNews[index];
+	const {title, urlToImage, url, author, description, publishedAt} = mainNews[index];
 
 	const time = new Date(publishedAt).getTime();
 	const day = new Date(time).getDate();
@@ -21,7 +20,7 @@ const NewsList = ({index}) => {
 
 	return (
 		<div key={realIndex} className="news-container pb-3" >
-			<Link to={`/newsDetails/${realIndex}`} style={{ textDecoration: 'none' }}> 
+			<a href={url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}> 
 				<div className="nl-container">
 					{ urlToImage === null ? 
 						(<img className="news-img" style={{height: '150px'}}  src="https://img.icons8.com/color/344/no-image.png" alt="newsPic"/>) : 
@@ -39,7 +38,7 @@ const NewsList = ({index}) => {
 		    		<p className="news-description" style={{ overflow: 'hidden'}}>{description}</p>
 				</div>
 				<hr/>					
-			</Link>
+			</a>
 		</div>
 	);
 };

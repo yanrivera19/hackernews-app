@@ -2,11 +2,10 @@ import news from '../apis/news';
 import {
 	FETCH_NEWS, 
 	FETCH_TOP_NEWS,
-	SET_NEWS_TERM,
 	SET_PAGE_NUMBER
 } from './types';
 
-export const fetchNews = term => async dispatch => {
+export const fetchNews = (term = 'cybersecurity') => async dispatch => {
 	const response = await news.get('/everything', {
 		params: {
 			q: term,
@@ -29,13 +28,6 @@ export const fetchTopNews = term => async dispatch => {
 	});
 
 	dispatch({type: FETCH_TOP_NEWS, payload: response.data.articles});
-};
-
-export const setNewsTerm = term  => {
-	return {
-		type: SET_NEWS_TERM,
-		payload: term
-	};
 };
 
 export const setPageNumber = pageNumber => {

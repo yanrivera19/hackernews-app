@@ -5,7 +5,6 @@ import NewsList from './NewsList';
 const SearchedNews = (props) => {
 	const searchedNews = useSelector(state => state.mainNews);
 	const pageNumber = useSelector(state => state.pageNumber);
-	const newsTerm = useSelector(state => state.newsTerm);
 	const newsPerPage = 10;
   	const firstNewsOnPage = pageNumber * newsPerPage;
 
@@ -19,7 +18,7 @@ const SearchedNews = (props) => {
 		<div className="col-md-8">
 			{searchedNews.length > 0 ? (
 				<>
-					<h5 className="results-msg" style={{paddingBottom: '30px'}}>{`Search results for ${newsTerm}:`}</h5>
+					<h5 className="results-msg" style={{paddingBottom: '30px'}}>Search results:</h5>
 					<div>{renderList}</div>
 				</>	
 			) : (

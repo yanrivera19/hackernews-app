@@ -4,8 +4,6 @@ import PopularNews from './PopularNews';
 import {Routes, Route} from 'react-router-dom';
 import {connect, useSelector} from 'react-redux';
 import HomePage from './HomePage';
-import SelectedNews from './SelectedNews';
-import SelectedPopularNews from './SelectedPopularNews';
 import SearchedNews from './SearchedNews';
 import ReactPaginate from 'react-paginate';
 import {setPageNumber} from '../actions';
@@ -34,8 +32,6 @@ const App = props => {
 					<Routes>
 						<Route path={'/'} element={<HomePage/>}/>
 						<Route path={'/:newsTerm'} element={<SearchedNews/>}/>
-						<Route path={'/newsDetails/:newsIndex'} element={<SelectedNews/>}/>
-						<Route path={'/topNewsDetails/:topNewsIndex'} element={<SelectedPopularNews/>}/>
 					</Routes>
 					<PopularNews />
 				</div>					

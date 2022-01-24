@@ -12,18 +12,18 @@ const PopularNews = (props) => {
 	}, []);
 
 	const renderList = topHeadlines.map((topHeadline, index) => {
-		const {title, urlToImage} = topHeadline;
+		const {title, url, urlToImage} = topHeadline;
 		return (
 			<div key={index} className="news-container pop-container">
-				<Link to={`/topNewsDetails/${index}`} style={{ textDecoration: 'none' }}> 
+				<a href={url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}> 
   					<div style={{paddingBottom: '10px'}}>
   						{urlToImage === null ? (
-						<img className="pop-img" src="https://img.icons8.com/color/344/no-image.png" alt="newsPic"/>) : (
-						<img src={urlToImage} className="pop-img" alt="newsPic"/>
+							<img className="pop-img" src="https://img.icons8.com/color/344/no-image.png" alt="newsPic"/>) : (
+							<img src={urlToImage} className="pop-img" alt="newsPic"/>
 						)}
   						<p className=" pop-title fw-bold">{title}</p>
   					</div>					
-    			</Link>
+    			</a>
 			</div>		
 		);
 	});	

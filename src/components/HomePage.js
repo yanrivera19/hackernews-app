@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect, useSelector} from 'react-redux';
-import {fetchNews, setNewsTerm} from '../actions';
+import {fetchNews} from '../actions';
 import NewsList from './NewsList';
 
 const HomePage = (props) => {
@@ -10,8 +10,7 @@ const HomePage = (props) => {
   	const firstNewsOnPage = pageNumber * newsPerPage;
 
 	useEffect(() => {
-		props.fetchNews('cybersecurity');
-		props.setNewsTerm('cybersecurity');	
+		props.fetchNews();
 	}, []);
 
 	const renderList = mainNews.slice(firstNewsOnPage, firstNewsOnPage + newsPerPage).map((mainNews, index) => {
@@ -27,5 +26,5 @@ const HomePage = (props) => {
 	);
 };
 
-export default connect(null, {fetchNews, setNewsTerm})(HomePage);
+export default connect(null, {fetchNews})(HomePage);
 
