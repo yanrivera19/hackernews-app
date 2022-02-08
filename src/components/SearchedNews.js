@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import NewsList from "./NewsList";
 
@@ -15,7 +15,7 @@ const SearchedNews = (props) => {
 		});
 
 	return (
-		<div className="col-md-8">
+		<div className="col-md-9">
 			{searchedNews.length > 0 ? (
 				<>
 					<h5

@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { fetchTopNews } from "../actions";
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
-const PopularNews = (props) => {
+const PopularNews = ({ fetchTopNews }) => {
 	const topHeadlines = useSelector((state) => state.topHeadlines);
 
 	useEffect(() => {
-		props.fetchTopNews("technology");
-	}, []);
+		fetchTopNews("technology");
+	}, [fetchTopNews]);
 
 	const renderList = topHeadlines.map((topHeadline, index) => {
 		const { title, url, urlToImage } = topHeadline;

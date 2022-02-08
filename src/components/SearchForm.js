@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { fetchNews, setPageNumber } from "../actions";
-import { connect, useSelector, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import SearchedNews from "./SearchedNews";
 
 const SearchForm = (props) => {
 	const navigate = useNavigate();

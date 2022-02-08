@@ -3,15 +3,15 @@ import { connect, useSelector } from "react-redux";
 import { fetchNews } from "../actions";
 import NewsList from "./NewsList";
 
-const HomePage = (props) => {
+const HomePage = ({ fetchNews }) => {
 	const mainNews = useSelector((state) => state.mainNews);
 	const pageNumber = useSelector((state) => state.pageNumber);
 	const newsPerPage = 10;
 	const firstNewsOnPage = pageNumber * newsPerPage;
 
 	useEffect(() => {
-		props.fetchNews();
-	}, []);
+		fetchNews();
+	}, [fetchNews]);
 
 	const renderList = mainNews
 		.slice(firstNewsOnPage, firstNewsOnPage + newsPerPage)

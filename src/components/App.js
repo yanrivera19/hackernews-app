@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import PopularNews from "./PopularNews";
 import { Routes, Route } from "react-router-dom";

@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Card, Button } from "react-bootstrap";
 
 const NewsList = ({ index }) => {
 	const pageNumber = useSelector((state) => state.pageNumber);
