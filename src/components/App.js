@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import PopularNews from "./PopularNews";
 import { Routes, Route } from "react-router-dom";
@@ -13,6 +13,7 @@ const App = (props) => {
 	const pageNumber = useSelector((state) => state.pageNumber);
 	const newsPerPage = 10;
 	const pageCount = Math.ceil(mainNews.length / newsPerPage);
+	const [pageSizeChange, setPageSizeChange] = useState(null);
 
 	const changePage = (data) => {
 		props.setPageNumber(data.selected);
@@ -23,6 +24,16 @@ const App = (props) => {
 	if (pageNumber === 0) {
 		forcePageObj["forcePage"] = 0;
 	}
+
+	const mql = window.matchMedia("(max-width: 419px)");
+
+	mql.addEventListener("change", (event) => {
+		if (event.matches) {
+			setPageSizeChange(true);
+		} else {
+			setPageSizeChange(false);
+		}
+	});
 
 	return (
 		<>
@@ -39,7 +50,7 @@ const App = (props) => {
 					previousLabel={"<<"}
 					nextLabel={">>"}
 					breakLabel={"..."}
-					pageRangeDisplayed={1}
+					marginPagesDisplayed={pageSizeChange === true ? 0 : 3}
 					pageCount={pageCount}
 					{...forcePageObj}
 					onPageChange={changePage}

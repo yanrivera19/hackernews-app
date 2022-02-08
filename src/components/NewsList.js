@@ -80,15 +80,16 @@ const NewsList = ({ index }) => {
 								></i>
 								Unknown
 							</p>
-						) : author ? (
-							author.replace(/(?:https?|ftp):\/\/[\n\S]+/g, "")
 						) : (
 							<p>
 								<i
 									className="fa-solid fa-user"
 									style={{ paddingRight: 8 }}
 								></i>
-								{author}
+								{author.replace(
+									/(?:https?|ftp):\/\/[\n\S]+/g,
+									""
+								)}
 							</p>
 						)}
 					</div>

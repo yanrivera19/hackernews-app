@@ -27,7 +27,7 @@ const SearchForm = (props) => {
 			<div className="input-group">
 				<input
 					type="search"
-					className="form-control"
+					className="form-control input-txt"
 					value={term}
 					onChange={(e) => setTerm(e.target.value)}
 					onFocus={clearInput}
@@ -37,10 +37,10 @@ const SearchForm = (props) => {
 				<button
 					type="button"
 					onClick={onSubmit}
-					className="btn btn-primary "
+					className="btn btn-primary"
 					id="exampleButton1"
 				>
-					<i className="fas fa-search"></i>
+					<i className="fas fa-search search-icon"></i>
 				</button>
 			</div>
 		</form>
