@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import NewsList from "./NewsList";
 
-const SearchedNews = (props) => {
+const SearchedNews = () => {
 	const searchedNews = useSelector((state) => state.mainNews);
 	const pageNumber = useSelector((state) => state.pageNumber);
 	const newsPerPage = 10;
