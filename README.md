@@ -21,4 +21,4 @@ On the search bar, you can type in any term, clear out what you have typed using
 ## Quick Start
 
 1. Clone the app onto your local machine and open it up.
-2. In your browser, go to localhost:3000.
+2. In your console, select the cloned app and type in the command <code>npm start</code>. The app will open in the browser on localhost:3000.
