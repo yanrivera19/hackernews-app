@@ -24,4 +24,4 @@ At the bottom of the page there is a pagination, with which you can page through
 
 1. Clone the app onto your local machine and open it up.
 2. In your console, select the cloned app and type in the command <code>npm install</code>.
-3. After that command is done, type in the command <code>npm start</code>. The app will then open in the browser on localhost:3000.
+3. After that command is done running, type in the command <code>npm start</code>. The app will then open in the browser on localhost:3000.
