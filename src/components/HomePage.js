@@ -13,10 +13,13 @@ const HomePage = ({ fetchNews }) => {
 		fetchNews();
 	}, [fetchNews]);
 
+	/*We display 10 news articles per page with a continuation throughout the pages. 
+	Page 1 will display the articles 0-9 from the mainNews state, page 2 displays articles 10-19,
+	and so on with the rest of the pages.*/
 	const renderList = mainNews
 		.slice(firstNewsOnPage, firstNewsOnPage + newsPerPage)
 		.map((mainNews, index) => {
-			return <NewsList key={index} index={index} />;
+			return <NewsList key={index} news={mainNews} index={index} />;
 		});
 
 	return (

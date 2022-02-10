@@ -1,17 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
-const NewsList = ({ index }) => {
-	const pageNumber = useSelector((state) => state.pageNumber);
-	const newsPerPage = 10;
-	const firstNewsOnPage = pageNumber * newsPerPage;
-	const realIndex = index + newsPerPage * pageNumber;
-	const mainNews = useSelector((state) =>
-		state.mainNews.slice(firstNewsOnPage, firstNewsOnPage + newsPerPage)
-	);
-	const { title, urlToImage, url, author, description, publishedAt } =
-		mainNews[index];
-
+const NewsList = ({ index, news }) => {
+	const { title, urlToImage, url, author, description, publishedAt } = news;
 	const time = new Date(publishedAt).getTime();
 	const day = new Date(time).getDate();
 	const monthNames = [
@@ -33,7 +23,7 @@ const NewsList = ({ index }) => {
 	const newsDate = `${month} ${day}, ${year}`;
 
 	return (
-		<div key={realIndex} className="news-container pb-3">
+		<div key={index} className="news-container pb-3">
 			<a
 				href={url}
 				target="_blank"

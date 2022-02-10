@@ -11,7 +11,7 @@ const SearchedNews = () => {
 	const renderList = searchedNews
 		.slice(firstNewsOnPage, firstNewsOnPage + newsPerPage)
 		.map((searchedNews, index) => {
-			return <NewsList key={index} index={index} />;
+			return <NewsList key={index} news={searchedNews} index={index} />;
 		});
 
 	return (
