@@ -1,6 +1,6 @@
-# The Hacker News (clone)
+# The Hacker News App
 
-This is a [The Hacker News](https://thehackernews.com/) clone. You can search any news on the search bar, page through the results using the pagination at the bottom of the page, and select any news you would want to see in detail. The data displayed (news articles) was obtained using the [Google NewsApi](https://newsapi.org/).
+This is a [The Hacker News](https://thehackernews.com/) clone. You can search any news on the search bar, page through the results using the pagination at the bottom of the page, and select any news you would want to see in detail. The data displayed (news articles) was obtained using the [Google News Api](https://newsapi.org/).
 
 ### How the App Works
 
@@ -16,7 +16,7 @@ At the bottom of the page there is a pagination, with which you can page through
 -   Redux
 -   Bootstrap (UI styling)
 -   Axios
--   NewsAPI
+-   News API
 
 ---
 
