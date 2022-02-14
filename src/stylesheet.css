@@ -5,6 +5,8 @@
 .search-bar {
     margin: auto;
     width: 80%;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 .navbar {
@@ -182,7 +184,7 @@
 
     .input-txt,
     .search-icon {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .pop-container {
