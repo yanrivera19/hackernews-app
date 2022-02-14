@@ -1,5 +1,5 @@
 import news from "../apis/news";
-import { FETCH_NEWS, FETCH_TOP_NEWS, SET_PAGE_NUMBER } from "./types";
+import { FETCH_NEWS, FETCH_TOP_NEWS, SET_PAGE_NUMBER, SET_TERM } from "./types";
 
 export const fetchNews =
 	(term = "cybersecurity") =>
@@ -32,5 +32,12 @@ export const setPageNumber = (pageNumber) => {
 	return {
 		type: SET_PAGE_NUMBER,
 		payload: pageNumber,
+	};
+};
+
+export const setTerm = (term) => {
+	return {
+		type: SET_TERM,
+		payload: term,
 	};
 };

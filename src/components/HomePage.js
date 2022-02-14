@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
-import { fetchNews } from "../actions";
+import { fetchNews, setTerm } from "../actions";
 import NewsList from "./NewsList";
 
-const HomePage = ({ fetchNews }) => {
+const HomePage = ({ fetchNews, setTerm }) => {
 	const mainNews = useSelector((state) => state.mainNews);
 	const pageNumber = useSelector((state) => state.pageNumber);
 	const newsPerPage = 10;
@@ -11,7 +11,8 @@ const HomePage = ({ fetchNews }) => {
 
 	useEffect(() => {
 		fetchNews();
-	}, [fetchNews]);
+		setTerm("");
+	}, [fetchNews, setTerm]);
 
 	/*We display 10 news articles per page with a continuation throughout the pages. 
 	Page 1 will display the articles 0-9 from the mainNews state, page 2 displays articles 10-19,
@@ -29,4 +30,4 @@ const HomePage = ({ fetchNews }) => {
 	);
 };
 
-export default connect(null, { fetchNews })(HomePage);
+export default connect(null, { fetchNews, setTerm })(HomePage);

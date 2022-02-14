@@ -1,4 +1,9 @@
-import { FETCH_NEWS, FETCH_TOP_NEWS, SET_PAGE_NUMBER } from "../actions/types";
+import {
+	FETCH_NEWS,
+	FETCH_TOP_NEWS,
+	SET_PAGE_NUMBER,
+	SET_TERM,
+} from "../actions/types";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; //use localstorage as default storage
 
@@ -12,6 +17,7 @@ const INITIAL_STATE = {
 	mainNews: [],
 	topHeadlines: [],
 	pageNumber: [0],
+	newsTerm: "",
 };
 
 export const newsReducer = (state = INITIAL_STATE, action) => {
@@ -22,6 +28,8 @@ export const newsReducer = (state = INITIAL_STATE, action) => {
 			return { ...state, topHeadlines: action.payload };
 		case SET_PAGE_NUMBER:
 			return { ...state, pageNumber: action.payload };
+		case SET_TERM:
+			return { ...state, newsTerm: action.payload };
 		default:
 			return state;
 	}

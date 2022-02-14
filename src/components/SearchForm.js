@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import { fetchNews, setPageNumber } from "../actions";
-import { connect } from "react-redux";
+import React from "react";
+import { fetchNews, setPageNumber, setTerm } from "../actions";
+import { connect, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const SearchForm = (props) => {
+	const newsTerm = useSelector((state) => state.newsTerm);
 	const navigate = useNavigate();
-	const [term, setTerm] = useState("");
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 
-		if (term !== "") {
-			props.fetchNews(term);
+		if (newsTerm !== "") {
+			props.fetchNews(newsTerm);
 			props.setPageNumber(0);
-			navigate(`/${term}`);
+			navigate(`/${newsTerm}`);
 		}
 	};
 
 	const clearInput = () => {
-		setTerm("");
+		props.setTerm("");
 	};
 
 	return (
@@ -27,8 +27,8 @@ const SearchForm = (props) => {
 				<input
 					type="search"
 					className="form-control input-txt"
-					value={term}
-					onChange={(e) => setTerm(e.target.value)}
+					value={newsTerm}
+					onChange={(e) => props.setTerm(e.target.value)}
 					onFocus={clearInput}
 					placeholder="Search Here..."
 					autoComplete="off"
@@ -46,4 +46,4 @@ const SearchForm = (props) => {
 	);
 };
 
-export default connect(null, { fetchNews, setPageNumber })(SearchForm);
+export default connect(null, { fetchNews, setPageNumber, setTerm })(SearchForm);
