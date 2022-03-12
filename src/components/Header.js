@@ -67,13 +67,13 @@ const Header = (props) => {
 							</Link>
 
 							<li className="nav-item">
-								<a className="nav-link" href="#">
+								<a className="nav-link" href="/#">
 									Cyber Attacks
 								</a>
 							</li>
 
 							<li className="nav-item">
-								<a className="nav-link" href="#">
+								<a className="nav-link" href="/#">
 									Malware
 								</a>
 							</li>
@@ -81,7 +81,7 @@ const Header = (props) => {
 							<li className="nav-item dropdown">
 								<a
 									className="nav-link dropdown-toggle"
-									href="#"
+									href="/#"
 									id="navbarDropdownMenuLink"
 									role="button"
 									data-bs-toggle="dropdown"
@@ -95,19 +95,19 @@ const Header = (props) => {
 									aria-labelledby="navbarDropdownMenuLink"
 								>
 									<li>
-										<a className="dropdown-item" href="#">
+										<a className="dropdown-item" href="/#">
 											Publish
 										</a>
 									</li>
 
 									<li>
-										<a className="dropdown-item" href="#">
+										<a className="dropdown-item" href="/#">
 											Advertisement
 										</a>
 									</li>
 
 									<li>
-										<a className="dropdown-item" href="#">
+										<a className="dropdown-item" href="/#">
 											Organizations
 										</a>
 									</li>
@@ -115,7 +115,7 @@ const Header = (props) => {
 							</li>
 
 							<li className="nav-item">
-								<a className="nav-link" href="#">
+								<a className="nav-link" href="/#">
 									Contact
 								</a>
 							</li>
