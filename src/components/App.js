@@ -83,8 +83,10 @@ const App = (props) => {
 				/>
 			</div>
 			<footer>
-				<div class="container-fluid text-center text-white py-5">
-					<h3 class="fs-4 fw-bold">Subscribe to our email list!</h3>
+				<div className="container-fluid text-center text-white py-5">
+					<h3 className="fs-4 fw-bold">
+						Subscribe to our email list!
+					</h3>
 
 					<div className="input-group subscribe mb-4 mt-4">
 						<input
@@ -100,10 +102,18 @@ const App = (props) => {
 						</button>
 					</div>
 					<div className="social-media d-flex justify-content-center fs-5">
-						<i className="fab fa-facebook-f"></i>
-						<i className="fab fa-twitter"></i>
-						<i className="fab fa-instagram"></i>
-						<i className="fab fa-youtube"></i>
+						<a href="/#">
+							<i className="fab fa-facebook-f"></i>
+						</a>
+						<a href="/#">
+							<i className="fab fa-twitter"></i>
+						</a>
+						<a href="/#">
+							<i className="fab fa-instagram"></i>
+						</a>
+						<a href="/#">
+							<i className="fab fa-youtube"></i>
+						</a>
 					</div>
 				</div>
 			</footer>

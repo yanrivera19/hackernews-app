@@ -54,16 +54,7 @@ const Header = (props) => {
 								onClick={resetPageNumber}
 								style={{ textDecoration: "none" }}
 							>
-								<li className="nav-item">
-									<a
-										id="activLink"
-										className="nav-link"
-										aria-current="page"
-										href="/"
-									>
-										Home
-									</a>
-								</li>
+								<li className="nav-item nav-link">Home</li>
 							</Link>
 
 							<li className="nav-item">

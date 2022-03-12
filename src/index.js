@@ -18,12 +18,14 @@ const store = createStore(
 const persistor = persistStore(store);
 
 ReactDOM.render(
-	<Provider store={store}>
-		<Router>
-			<PersistGate persistor={persistor}>
-				<App />
-			</PersistGate>
-		</Router>
-	</Provider>,
+	<React.StrictMode>
+		<Provider store={store}>
+			<Router>
+				<PersistGate persistor={persistor}>
+					<App />
+				</PersistGate>
+			</Router>
+		</Provider>
+	</React.StrictMode>,
 	document.querySelector("#root")
 );
