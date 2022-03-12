@@ -6,7 +6,7 @@ This is a [The Hacker News](https://thehackernews.com/) clone app. You can searc
 
 On the search bar, you can type in any term, clear and do a search either by pressing the 'Enter' key or by clicking the blue search icon at the right side of the search bar. When you select the news you would want to see in detail (by clicking it), a link containing the article will open.
 
-At the bottom of the page there is a pagination, with which you can page through the news articles by clicking either the number, or the arrow buttons. If you wish to go back to the home page with the default news articles that where displayed when you first opened the app, you can click on the _The Hacker News_ logo on the top left corner of the header.
+At the bottom of the page there is a pagination, with which you can page through the news articles by clicking either the number, or the arrow buttons. If you wish to go back to the home page with the default news articles that where displayed when you first opened the app, you can either click the _The Hacker News_ logo on the top left corner of the header or the home tab in the navigation menu.
 
 ---
 
@@ -14,7 +14,7 @@ At the bottom of the page there is a pagination, with which you can page through
 
 -   React
 -   Redux
--   Bootstrap (UI styling)
+-   Bootstrap
 -   Axios
 -   News API
 
