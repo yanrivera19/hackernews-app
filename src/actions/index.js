@@ -1,7 +1,7 @@
 import news from "../apis/news";
 import { FETCH_NEWS, FETCH_TOP_NEWS, SET_PAGE_NUMBER, SET_TERM } from "./types";
 
-export const fetchNews =
+export const fetchNews = 
 	(term = "cybersecurity") =>
 	async (dispatch) => {
 		const response = await news.get("/everything", {

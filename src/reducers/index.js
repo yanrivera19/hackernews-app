@@ -16,7 +16,7 @@ const persistConfig = {
 const INITIAL_STATE = {
 	mainNews: [],
 	topHeadlines: [],
-	pageNumber: [0],
+	pageNumber: 0,
 	newsTerm: "",
 };
 

@@ -19,7 +19,7 @@ const SearchedNews = () => {
 			{searchedNews.length > 0 ? (
 				<>
 					<h5
-						className="results-msg"
+						className="results-msg fw-bold"
 						style={{ paddingBottom: "30px" }}
 					>
 						Search results:

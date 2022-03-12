@@ -30,14 +30,13 @@ const SearchForm = (props) => {
 					value={newsTerm}
 					onChange={(e) => props.setTerm(e.target.value)}
 					onFocus={clearInput}
-					placeholder="Search Here..."
+					placeholder="Search here..."
 					autoComplete="off"
 				/>
 				<button
 					type="button"
 					onClick={onSubmit}
 					className="btn btn-primary"
-					id="exampleButton1"
 				>
 					<i className="fas fa-search search-icon"></i>
 				</button>

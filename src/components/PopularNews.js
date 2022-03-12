@@ -43,7 +43,7 @@ const PopularNews = ({ fetchTopNews }) => {
 	return (
 		<div className="col-md-3 pop-news">
 			<h5
-				className="pb-3 ptw-head"
+				className="pb-3 ptw-head fw-bold"
 				style={{ textDecoration: "underline" }}
 			>
 				Popular This Week

@@ -13,14 +13,18 @@ const App = (props) => {
 	const pageNumber = useSelector((state) => state.pageNumber);
 	const newsPerPage = 10;
 	const pageCount = Math.ceil(mainNews.length / newsPerPage); //total pages in pagination (100/10 = 10)
-	const [pageSizeChange, setPageSizeChange] = useState(null);
+	const [pageSizeChange, setPageSizeChange] = useState();
 
 	const changePage = (data) => {
 		/*With the ReactPaginate component, the page numbers are index-based (page 1 of 
 		pagination bar is page 0 behind the scenes)*/
 
 		props.setPageNumber(data.selected);
-		window.scrollTo(0, 0);
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: "smooth",
+		});
 	};
 
 	/*If the logo on top of the page is clicked and the page is redirected to the first/home page,
@@ -29,7 +33,7 @@ const App = (props) => {
 	in-built property of the React-Paginate component.*/
 
 	const forcePageObj = {};
-	if (pageNumber || pageNumber === 0) {
+	if (pageNumber >= 0) {
 		forcePageObj["forcePage"] = pageNumber;
 	}
 
@@ -50,7 +54,7 @@ const App = (props) => {
 	return (
 		<>
 			<Header />
-			<div className="container-fluid page-content bg-light">
+			<div className="container-fluid page-content bg-light pb-4">
 				<div className="row gx-5">
 					<Routes>
 						<Route path={"/"} element={<HomePage />} />
@@ -62,7 +66,7 @@ const App = (props) => {
 					previousLabel={"<<"}
 					nextLabel={">>"}
 					breakLabel={"..."}
-					marginPagesDisplayed={pageSizeChange === true ? 0 : 3}
+					marginPagesDisplayed={pageSizeChange ? 0 : 3}
 					pageCount={pageCount}
 					{...forcePageObj}
 					onPageChange={changePage}
@@ -78,6 +82,31 @@ const App = (props) => {
 					activeClassName={"active"}
 				/>
 			</div>
+			<footer>
+				<div class="container-fluid text-center text-white py-5">
+					<h3 class="fs-4 fw-bold">Subscribe to our email list!</h3>
+
+					<div className="input-group subscribe mb-4 mt-4">
+						<input
+							type="text"
+							className="form-control input-txt"
+							placeholder="Enter email"
+						/>
+						<button
+							className="btn btn-success border-rad"
+							type="button"
+						>
+							Subscribe
+						</button>
+					</div>
+					<div className="social-media d-flex justify-content-center fs-5">
+						<i className="fab fa-facebook-f"></i>
+						<i className="fab fa-twitter"></i>
+						<i className="fab fa-instagram"></i>
+						<i className="fab fa-youtube"></i>
+					</div>
+				</div>
+			</footer>
 		</>
 	);
 };
