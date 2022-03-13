@@ -8,8 +8,16 @@
 .input-txt,
 footer,
 .dropdown-menu,
-.navbar-nav {
+.navbar-nav,
+.page-item {
     font-family: "Poppins", sans-serif;
+}
+
+.page-link,
+.page-item {
+    text-decoration: none !important;
+    color: black;
+    font-weight: bold;
 }
 
 .input-group {
@@ -110,6 +118,23 @@ footer {
 
 .fab:hover {
     color: gold;
+}
+
+@media only screen and (min-width: 1500px) {
+    .page-content {
+        margin: auto !important;
+        width: 80%;
+    }
+
+    .search-bar {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 1260px) {
+    .pop-title {
+        overflow: hidden !important;
+    }
 }
 
 @media only screen and (min-width: 992px) {
