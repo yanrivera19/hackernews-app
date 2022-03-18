@@ -1,7 +1,8 @@
 import React from "react";
 
 const NewsList = ({ index, news }) => {
-	const { title, urlToImage, url, author, description, publishedAt } = news;
+	const { title, urlToImage, url, author, description, publishedAt, source } =
+		news;
 	const time = new Date(publishedAt).getTime();
 	const day = new Date(time).getDate();
 	const monthNames = [
@@ -45,8 +46,14 @@ const NewsList = ({ index, news }) => {
 						/>
 					)}
 					<p
+						className="news-source"
+						style={{ marginBottom: 5, fontSize: "14px" }}
+					>
+						{source.name}
+					</p>
+					<p
 						className="news-title fw-bold"
-						style={{ overflow: "hidden" }}
+						style={{ overflow: "hidden", marginBottom: 5 }}
 					>
 						{title}
 					</p>

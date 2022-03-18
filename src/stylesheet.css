@@ -80,7 +80,8 @@ footer {
     color: #555555;
 }
 
-.news-description {
+.news-description,
+.news-source {
     color: #444444;
 }
 
@@ -153,7 +154,7 @@ footer {
 
     .news-img {
         float: left;
-        padding-right: 10px;
+        padding-right: 20px;
         width: 230px;
         max-height: 150px;
     }
@@ -195,7 +196,7 @@ footer {
     }
 
     .news-img {
-        width: 70%;
+        width: 50%;
         margin: auto;
         display: block;
         padding-bottom: 15px;
@@ -249,7 +250,7 @@ footer {
     }
 
     .news-img {
-        width: 70%;
+        width: 50%;
         margin: auto;
         display: block;
         padding-bottom: 15px;
@@ -305,7 +306,7 @@ footer {
     }
 
     .news-img {
-        width: 80%;
+        width: 60%;
         margin: auto;
         display: block;
         padding-bottom: 15px;
