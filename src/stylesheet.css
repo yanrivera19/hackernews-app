@@ -31,10 +31,6 @@ footer,
     padding-left: 40px;
 }
 
-footer {
-    background-color: royalblue;
-}
-
 .navbar-brand {
     font-family: "PRIMETIME", sans-serif !important;
     font-size: clamp(0.8rem, 8vw, 2.5rem) !important;
@@ -91,13 +87,14 @@ footer {
 }
 
 .news-img {
-    padding-bottom: 10px;
+    margin-bottom: 10px;
     width: 50%;
 }
 
 .pop-img {
     float: left;
-    padding-right: 10px;
+    margin-right: 12px;
+    margin-bottom: 7px;
     width: 100px;
     max-height: 60px;
 }
@@ -106,6 +103,11 @@ footer {
     font-size: 12px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
     border-radius: 3px;
+}
+
+.news-img,
+.pop-img {
+    border-radius: 0.5rem;
 }
 
 footer {
@@ -154,7 +156,7 @@ footer {
 
     .news-img {
         float: left;
-        padding-right: 20px;
+        margin-right: 20px;
         width: 230px;
         max-height: 150px;
     }
@@ -199,7 +201,7 @@ footer {
         width: 50%;
         margin: auto;
         display: block;
-        padding-bottom: 15px;
+        margin-bottom: 15px;
     }
 
     .news-title {
@@ -238,7 +240,7 @@ footer {
 
     .pop-title {
         font-size: 14px;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .news-title {
@@ -253,7 +255,7 @@ footer {
         width: 50%;
         margin: auto;
         display: block;
-        padding-bottom: 15px;
+        margin-bottom: 15px;
     }
 
     .news-description {
@@ -288,7 +290,7 @@ footer {
 
     .pop-title {
         font-size: 13px;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .search-bar,
@@ -309,7 +311,7 @@ footer {
         width: 60%;
         margin: auto;
         display: block;
-        padding-bottom: 15px;
+        margin-bottom: 15px;
     }
 
     .news-description {
