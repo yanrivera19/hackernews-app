@@ -32,69 +32,73 @@ const NewsList = ({ index, news }) => {
 				style={{ textDecoration: "none" }}
 			>
 				<div className="nl-container">
-					{urlToImage === null ? (
-						<img
-							className="news-img"
-							src="https://img.icons8.com/color/344/no-image.png"
-							alt="newsPic"
-						/>
-					) : (
-						<img
-							className="news-img"
-							src={urlToImage}
-							alt="newsPic"
-						/>
-					)}
-					<p
-						className="news-source"
-						style={{ marginBottom: 5, fontSize: "14px" }}
-					>
-						{source.name}
-					</p>
-					<p
-						className="news-title fw-bold"
-						style={{ overflow: "hidden", marginBottom: 5 }}
-					>
-						{title}
-					</p>
-					<div
-						className="d-inline-flex date-author"
-						style={{ overflow: "hidden" }}
-					>
-						<p style={{ paddingRight: 20 }}>
-							<i
-								className="fa-regular fa-calendar-days"
-								style={{ paddingRight: 8 }}
-							></i>
-							{newsDate}
-						</p>
-						{author === null ? (
-							<p>
-								<i
-									className="fa-solid fa-user"
-									style={{ paddingRight: 8 }}
-								></i>
-								Unknown
-							</p>
+					<div>
+						{urlToImage === null ? (
+							<img
+								className="news-img"
+								src="https://img.icons8.com/color/344/no-image.png"
+								alt="newsPic"
+							/>
 						) : (
-							<p>
-								<i
-									className="fa-solid fa-user"
-									style={{ paddingRight: 8 }}
-								></i>
-								{author.replace(
-									/(?:https?|ftp):\/\/[\n\S]+/g,
-									""
-								)}
-							</p>
+							<img
+								className="news-img"
+								src={urlToImage}
+								alt="newsPic"
+							/>
 						)}
 					</div>
-					<p
-						className="news-description"
-						style={{ overflow: "hidden" }}
-					>
-						{description}
-					</p>
+					<div>
+						<p
+							className="news-source"
+							style={{ marginBottom: 5, fontSize: "14px" }}
+						>
+							{source.name}
+						</p>
+						<p
+							className="news-title fw-bold"
+							style={{ overflow: "hidden", marginBottom: 5 }}
+						>
+							{title}
+						</p>
+						<div
+							className="d-inline-flex date-author"
+							style={{ overflow: "hidden" }}
+						>
+							<p style={{ paddingRight: 20 }}>
+								<i
+									className="fa-regular fa-calendar-days"
+									style={{ paddingRight: 8 }}
+								></i>
+								{newsDate}
+							</p>
+							{author === null ? (
+								<p>
+									<i
+										className="fa-solid fa-user"
+										style={{ paddingRight: 8 }}
+									></i>
+									Unknown
+								</p>
+							) : (
+								<p>
+									<i
+										className="fa-solid fa-user"
+										style={{ paddingRight: 8 }}
+									></i>
+									{author.replace(
+										/(?:https?|ftp):\/\/[\n\S]+/g,
+										""
+									)}
+								</p>
+							)}
+						</div>
+						<p
+							className="news-description"
+							style={{ overflow: "hidden" }}
+						>
+							{description}
+						</p>
+					</div>
 				</div>
 				<hr />
 			</a>

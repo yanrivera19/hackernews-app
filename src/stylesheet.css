@@ -82,8 +82,7 @@ footer,
 }
 
 .pop-title {
-    font-size: 14px;
-    overflow: hidden;
+    font-size: 13px;
 }
 
 .news-img {
@@ -92,7 +91,6 @@ footer,
 }
 
 .pop-img {
-    float: left;
     margin-right: 12px;
     margin-bottom: 7px;
     width: 100px;
@@ -126,7 +124,7 @@ footer {
 @media only screen and (min-width: 1500px) {
     .page-content {
         margin: auto !important;
-        width: 80%;
+        width: 75% !important;
     }
 
     .search-bar {
@@ -135,23 +133,26 @@ footer {
 }
 
 @media only screen and (min-width: 1260px) {
-    .pop-title {
-        overflow: hidden !important;
+    .pop-cont {
+        display: flex !important;
+        flex-wrap: nowrap !important;
     }
 }
 
 @media only screen and (min-width: 992px) {
     .page-content {
-        padding-left: 120px;
-        padding-right: 120px;
+        margin: auto !important;
+        width: 82%;
     }
 
     .nl-container {
+        display: flex !important;
+        flex-wrap: nowrap !important;
         padding-bottom: 30px;
     }
 
-    .pop-title {
-        overflow: visible;
+    .pop-cont {
+        display: block;
     }
 
     .news-img {
@@ -184,17 +185,9 @@ footer {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .pop-container {
-        padding-bottom: 14px !important;
-    }
-
     .page-content {
         padding-left: 50px;
         padding-right: 50px;
-    }
-
-    .pop-title {
-        overflow: visible;
     }
 
     .news-img {
@@ -240,7 +233,6 @@ footer {
 
     .pop-title {
         font-size: 14px;
-        overflow: hidden;
     }
 
     .news-title {
@@ -266,6 +258,11 @@ footer {
         margin: auto;
         width: 60%;
     }
+
+    .pop-cont {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+    }
 }
 
 @media only screen and (max-width: 419px) {
@@ -286,11 +283,6 @@ footer {
 
     .pop-container {
         padding-bottom: 14px !important;
-    }
-
-    .pop-title {
-        font-size: 13px;
-        overflow: hidden;
     }
 
     .search-bar,
@@ -316,5 +308,10 @@ footer {
 
     .news-description {
         font-size: 14px;
+    }
+
+    .pop-cont {
+        display: flex !important;
+        flex-wrap: nowrap !important;
     }
 }
