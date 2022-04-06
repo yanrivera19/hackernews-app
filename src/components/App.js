@@ -15,6 +15,7 @@ const App = (props) => {
 	const pageCount = Math.ceil(mainNews.length / newsPerPage); //total pages in pagination (100/10 = 10)
 	const [pageSizeChange, setPageSizeChange] = useState();
 
+	console.log(pageNumber)
 	const changePage = (data) => {
 		/*With the ReactPaginate component, the page numbers are index-based (page 1 of 
 		pagination bar is page 0 behind the scenes)*/
@@ -26,16 +27,6 @@ const App = (props) => {
 			behavior: "smooth",
 		});
 	};
-
-	/*If the logo on top of the page is clicked and the page is redirected to the first/home page,
-	we want to update the pagination so that the number 1 in it becomes active. Also, if the page gets 
-	refreshed, the pagination number that was active before the refresh remains active. "forcePage" is an 
-	in-built property of the React-Paginate component.*/
-
-	const forcePageObj = {};
-	if (pageNumber >= 0) {
-		forcePageObj["forcePage"] = pageNumber;
-	}
 
 	/*We want to update pageSizeChange state whenever the following event listener gets triggered. 
 	We want to make the size of the pagination bar smaller and display less numbers if the screen 
@@ -68,7 +59,7 @@ const App = (props) => {
 					breakLabel={"..."}
 					marginPagesDisplayed={pageSizeChange ? 0 : 3}
 					pageCount={pageCount}
-					{...forcePageObj}
+					forcePage={pageNumber}
 					onPageChange={changePage}
 					containerClassName={"pagination justify-content-center"}
 					pageClassName={"page-item"}

@@ -4,14 +4,6 @@ import {
 	SET_PAGE_NUMBER,
 	SET_TERM,
 } from "../actions/types";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; //use localstorage as default storage
-
-const persistConfig = {
-	key: "root",
-	storage,
-	whitelist: ["mainNews", "topHeadlines", "newsTerm", "pageNumber"],
-};
 
 const INITIAL_STATE = {
 	mainNews: [],
@@ -35,4 +27,4 @@ export const newsReducer = (state = INITIAL_STATE, action) => {
 	}
 };
 
-export default persistReducer(persistConfig, newsReducer);
+export default newsReducer;
